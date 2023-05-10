@@ -3,13 +3,16 @@
 <head>
   <title>Manuals</title>
   <style type="text/css">
+  body {
+    margin: 20px;
+  }
     h1, h2, h3, .title {
       color:black;
       font-weight:bold;
       font-size: 100%;
       font-family: Cambria;
       padding: 2px;
-      margin: 15px 0 0 2px;
+      margin: 15px 0 0 0;
     }
     .title {
       font-size:250%;
@@ -17,52 +20,85 @@
       text-align: center;
     }
     h1 {
-      font-size:140%;
+      font-size:120%;
       border-bottom:1.5px solid black;
     }
     h2 {
-      font-size:  120%;
+      font-size:  110%;
     }
     .Content_1, .Content_2 {
       color:black;
-      font-size:60%;
+      font-size:80%;
       font-family:Cambria;
       margin: 0;
     }
     .Content_1 {
       border-top: 1px solid black;
       margin-top: 5px;
-      font-size:70%;
+      font-size:90%;
     }
-    p {
+    p, tr, li {
       color:black;
       font-size:80%;
       font-family:Cambria;
       margin: 0 0 5px 2px;
+      padding: 2px
     }
+
+    li li {
+      font-size: 100%;
+      padding: 0;
+    }
+    li .code {
+      font-size: 85%;
+      padding: 2px;
+      margin-top: 5px;
+    }
+
     .code {
       font-size:70%;
       font-family:Courier New;
       padding: 0;
-      margin: 0 0 2px 20px;
+      margin: 0 0 2px 30px;
     }
 
     .indent {
-      margin-left:40px;
-      /* text-indent: -1cm; */
+      margin-left:60px;
     }
 
     .spacer {
-      margin: 20px;
+      margin: 10px;
     }
 
     ul {
       margin: 0;
+      padding: 0 0 2px 25px;
     }
-    ul li {
+
+    li {
       margin: 0;
+      padding: 0;
     }
-      </style>
+
+    table {
+      border-collapse: collapse;
+      margin: 15px 0px 5px 15px;
+    }
+
+    tr {
+      font-size: 70%;
+    }
+
+    th, tr:last-child {
+      text-align: left;
+      border-bottom: 1px solid black;
+    }
+
+    td, th {
+      padding: 2px 10px 2px 2px;
+      vertical-align: top;
+    }
+  </style>
 </head>
 <body>
   <h1 class="title">Stata syntax</h1>
@@ -292,26 +328,25 @@
   <h2 id="TOC1_1">1.1. Main window</h2>
   <p>The main window from with all others are accessed</p>
   <ul>
-    <li><p>The bottom section is a command line, simple commands can be written there directly but for more complex one, .do files are a better choice</p></li>
-    <li><p>The left area lists all conducted commands, clicking on them re-runs them</p></li>
-    <li><p>The center section lists all the conducted commands, processed .do files and all the results. Its especially helpful to learn new commands as all types of actions, appear here as commands</p></li>
+    <li>The bottom section is a command line, simple commands can be written there directly but for more complex one, .do files are a better choice</li>
+    <li>The left area lists all conducted commands, clicking on them re-runs them</li>
+    <li>The center section lists all the conducted commands, processed .do files and all the results. Its especially helpful to learn new commands as all types of actions, appear here as commands</li>
   </ul>
   <h2 id="TOC1_2">1.2. Data Editor</h2>
   <p>The data editor stores the input data as in a speadsheet</p>
   <ul>
-    <li>
-      <p>It has two modes</p>
+    <li>It has two modes
       <ul>
-        <li><p>Edit (pencil icon): lets you modify, add and delete the data</p></li>
-        <li><p>Browse (maginfer): it used for browsing and sorting data</p></li>
+        <li>Edit (pencil icon): lets you modify, add and delete the data</li>
+        <li>Browse (maginfer): it used for browsing and sorting data</li>
       </ul>
     </li>
   </ul>
   <h2 id="TOC1_3">1.3. Do-file Editor</h2>
   <p>Do-files are the program scripts one can write to automate and speed up the processing</p>
   <ul>
-    <li><p>// is used for comments</p></li>
-    <li><p>/// at the end of line (with leading space) is used to continue the script in the next line without breaking the line</p></li>
+    <li>// is used for comments</li>
+    <li>/// at the end of line (with leading space) is used to continue the script in the next line without breaking the line</li>
   </ul>
   <h2 id="TOC1_4">1.4. Viewer</h2>
   <p>Stata has a very useful viewer to check all the operators and commands. Simply write:</p>
@@ -322,174 +357,103 @@
   <p>Created graphs automatically appear in the graph viewer. Graphs can also be always opened there, regardless of the data currently loaded.</p>
   <p>One want to manually edit the graph by clicking on the small graph icon in the task bar and starting the Graph Editor</p>
   <ul>
-    <li><p>There, everything expect the data can be modified, including labels, ratios, colors and axes</p></li>
-    <li><p>The rest of Stata is locked as long at the Graph Editor is active</p></li>
-    <li><p>You can also record you edits</p></li>
+    <li>There, everything expect the data can be modified, including labels, ratios, colors and axes</li>
+    <li>The rest of Stata is locked as long at the Graph Editor is active</li>
+    <li>You can also record you edits</li>
   </ul>
   <h1 id="TOC2">2. DATA MODIFICATION</h1>
   <h2 id="TOC2_1">2.1. Import Data</h2>
   <p>There are three simple ways to import data in a table format.</p>
   <ul>
-    <li>
-      <p>Import .csv files by clicking in ‘File’ in the task bar of the main window</p>
+    <li>Import .csv files by clicking in ‘File’ in the task bar of the main window
       <ul>
-        <li><p>&gt; select ‘import’ &gt; ‘Text data (delimited, *.csv, …)”</p></li>
+        <li>&gt; select ‘import’ &gt; ‘Text data (delimited, *.csv, …)”</li>
       </ul>
     </li>
-    <li>
-      <p>Click on the spreadsheet icon with the pencil in the main window’s taskbar</p>
+    <li>Click on the spreadsheet icon with the pencil in the main window’s taskbar
       <ul>
-        <li><p>&gt; Copy paste the data from your spreadsheet to the Data Editor (it will ask if you want to treat the first line as variable names)</p></li>
+        <li>&gt; Copy paste the data from your spreadsheet to the Data Editor (it will ask if you want to treat the first line as variable names)</li>
       </ul>
     </li>
-    <li>
-      <p>Import the .csv file using the terminal and the file path, write (clear is for removing previous data):</p>
+    <li>Import the .csv file using the terminal and the file path, write (clear is for removing previous data):
     </li>
   </ul>
   <p class="code indent">→ import delimited "/home/user/documents/ANOVA.csv", clear</p>
   <h2 id="TOC2_2">2.2. Create Data</h2>
   <ul>
-    <li>
-      <p>New variable:</p>
+    <li>New variable:
       <ul>
-        <li><p>generate: create variables with manual functions</p></li>
-        <li><p>egen: create new data based on extisting functions (only two are mentioned below, check help egen for more info)</p></li>
+        <li>generate: create variables with manual functions</li>
+        <li>egen: create new data based on extisting functions (only two are mentioned below, check help egen for more info)</li>
       </ul>
     </li>
-    <li>
-      <p>Alter variable:</p>
+    <li>Alter variable:
       <ul>
-        <li><p>New values: replace</p></li>
-        <li><p>New name: rename</p></li>
-        <li><p>New format: format</p></li>
+        <li>New values: replace</li>
+        <li>New name: rename</li>
+        <li>New format: format</li>
       </ul>
     </li>
   </ul>
   <table>
     <tr>
-      <td>
-        <p>Type</p>
-      </td>
-      <td>
-        <p>Operator</p>
-      </td>
-      <td>
-        <p>Example</p>
-      </td>
+      <th>Type</th>
+      <th>Operator</th>
+      <th>Example</th>
     </tr>
     <tr>
-      <td>
-        <p>mean</p>
-      </td>
-      <td>
-        <p>egen [var] = rowmean([varlist)</p>
-      </td>
-      <td>
-        <p>egen mean = rowmean(S1 S2) if sample</p>
-      </td>
+      <td>mean</td>
+      <td>egen [var] = rowmean([varlist)</td>
+      <td>egen mean = rowmean(S1 S2) if sample</td>
     </tr>
     <tr>
-      <td>
-        <p>stdev</p>
-      </td>
-      <td>
-        <p>egen [var] = rowsd([varlist)</p>
-      </td>
-      <td>
-        <p>egen sd = rowsd(S1-S3)</p>
-      </td>
+      <td>stdev</td>
+      <td>egen [var] = rowsd([varlist)</td>
+      <td>egen sd = rowsd(S1-S3)</td>
     </tr>
     <tr>
-      <td>
-        <p>mean + sd</p>
-      </td>
-      <td>
-        <p>generate [var] = [var1] + [var2]</p>
-      </td>
-      <td>
-        <p>generate posSD = mean + sd</p>
-      </td>
+      <td>mean + sd</td>
+      <td>generate [var] = [var1] + [var2]</td>
+      <td>generate posSD = mean + sd</td>
     </tr>
     <tr>
-      <td>
-        <p>replace</p>
-      </td>
-      <td>
-        <p>replace [var] = [exp]</p>
-      </td>
-      <td>
-        <p>replace Name = "Amylose III" if tmin == 1</p>
-      </td>
+      <td>replace</td>
+      <td>replace [var] = [exp]</td>
+      <td>replace Name = "Amylose III" if tmin == 1</td>
     </tr>
     <tr>
-      <td>
-        <p>rename</p>
-      </td>
-      <td>
-        <p>rename [var] [string]</p>
-      </td>
-      <td>
-        <p>rename id ID</p>
-      </td>
+      <td>rename</td>
+      <td>rename [var] [string]</td>
+      <td>rename id ID</td>
     </tr>
     <tr>
-      <td>
-        <p>format</p>
-      </td>
-      <td>
-        <p>format [varlist] [format]</p>
-      </td>
-      <td>
-        <p>format mean SD %5.2f</p>
-      </td>
+      <td>format</td>
+      <td>format [varlist] [format]</td>
+      <td>format mean SD %5.2f</td>
     </tr>
   </table>
   <h2 id="TOC2_3">2.3. Delete Data</h2>
   <p>There are two types of operators, drop and keep. Drop deletes all in the selection, keep deletes all that doesn’t meet the selection.</p>
   <table>
     <tr>
-      <td>
-        <p>Data type</p>
-      </td>
-      <td>
-        <p>Meaning</p>
-      </td>
-      <td>
-        <p>Example</p>
-      </td>
+      <th>Data type</th>
+      <th>Meaning</th>
+      <th>Example</th>
     </tr>
     <tr>
-      <td>
-        <p>data (row)</p>
-      </td>
-      <td>
-        <p>drop in [rowlist]</p>
-      </td>
-      <td>
-        <p>drop in 400/500</p>
-      </td>
+      <td>data (row)</td>
+      <td>drop in [rowlist]</td>
+      <td>drop in 400/500</td>
     </tr>
     <tr>
-      <td>
-        <p>variable (column)</p>
-      </td>
-      <td>
-        <p>drop [varlist]</p>
-      </td>
-      <td>
-        <p>drop t3-t9</p>
-      </td>
+      <td>variable (column)</td>
+      <td>drop [varlist]</td>
+      <td>drop t3-t9</td>
     </tr>
     <tr>
-      <td>
-        <p>variable (column)</p>
-      </td>
-      <td>
-        <p>keep if [exp]</p>
-      </td>
-      <td>
-        <p>keep if sample != "Test"</p>
-      </td>
+      <td>variable (column)</td>
+      <td>keep if [exp]</td>
+      <td>keep if sample != "Test"</td>
     </tr>
   </table>
   <h2 id="TOC2_4">2.4. Data labels</h2>
@@ -498,7 +462,7 @@
   <p class="code">label values [var] [arr]</p>
   <p class="code">→ label define Name 1 "Corn starch" 2 "Pea starch" 3 "Potato starch"</p>
   <p class="code">→ label values ID Name</p>
-  <p></p>
+  <p class="spacer"></p>
   <p>Variables have sort of two names, the one with which you call in (usually lowercase, no spaces or special characters) and another which is displayed in the graphs. The second can be defined as followed:</p>
   <p class="code">label variable [var] "[string]"</p>
   <p class="code">→ label variable db "Degree of branching (%)"</p>
@@ -506,140 +470,68 @@
   <p>Data can be selected by the usual operators</p>
   <table>
     <tr>
-      <td>
-        <p>Operator</p>
-      </td>
-      <td>
-        <p>Meaning</p>
-      </td>
-      <td>
-        <p>Example</p>
-      </td>
+      <th>Operator</th>
+      <th>Meaning</th>
+      <th>Example</th>
     </tr>
     <tr>
-      <td>
-        <p>==</p>
-      </td>
-      <td>
-        <p>equal to</p>
-      </td>
-      <td>
-        <p>if sample == 2</p>
-      </td>
+      <td>==</td>
+      <td>equal to</td>
+      <td>if sample == 2</td>
     </tr>
     <tr>
-      <td>
-        <p>!=</p>
-      </td>
-      <td>
-        <p>not equal to</p>
-      </td>
-      <td>
-        <p>if sample != "Test"</p>
-      </td>
+      <td>!=</td>
+      <td>not equal to</td>
+      <td>if sample != "Test"</td>
     </tr>
     <tr>
-      <td>
-        <p>&lt; or &lt;=</p>
-      </td>
-      <td>
-        <p>less (or equal)</p>
-      </td>
-      <td>
-        <p>if sample &lt; 25</p>
-      </td>
+      <td>&lt; or &lt;=</td>
+      <td>less (or equal)</td>
+      <td>if sample &lt; 25</td>
     </tr>
     <tr>
-      <td>
-        <p>&gt; or &gt;=</p>
-      </td>
-      <td>
-        <p>greater (or equal)</p>
-      </td>
-      <td>
-        <p>if sample &gt;= 10</p>
-      </td>
+      <td>&gt; or &gt;=</td>
+      <td>greater (or equal)</td>
+      <td>if sample &gt;= 10</td>
     </tr>
     <tr>
-      <td>
-        <p>&</p>
-      </td>
-      <td>
-        <p>and</p>
-      </td>
-      <td>
-        <p>if sample &gt;= 10 & sample &lt; 25</p>
-      </td>
+      <td>&</td>
+      <td>and</td>
+      <td>if sample &gt;= 10 & sample &lt; 25</td>
     </tr>
     <tr>
-      <td>
-        <p>|</p>
-      </td>
-      <td>
-        <p>or</p>
-      </td>
-      <td>
-        <p>if sample &lt; 25 | name != "Test"</p>
-      </td>
+      <td>|</td>
+      <td>or</td>
+      <td>if sample &lt; 25 | name != "Test"</td>
     </tr>
   </table>
   <h2 id="TOC2_6">2.6. Range</h2>
   <p>How to select the range depends on the type of data</p>
   <table>
     <tr>
-      <td>
-        <p>Data type</p>
-      </td>
-      <td>
-        <p>Meaning</p>
-      </td>
-      <td>
-        <p>Example</p>
-      </td>
+      <th>Data type</th>
+      <th>Meaning</th>
+      <th>Example</th>
     </tr>
     <tr>
-      <td>
-        <p>data (row)</p>
-      </td>
-      <td>
-        <p>min/max</p>
-      </td>
-      <td>
-        <p>drop in 400/500</p>
-      </td>
+      <td>data (row)</td>
+      <td>min/max</td>
+      <td>drop in 400/500</td>
     </tr>
     <tr>
-      <td>
-        <p>variable (column)</p>
-      </td>
-      <td>
-        <p>min-max</p>
-      </td>
-      <td>
-        <p>drop t3-t9</p>
-      </td>
+      <td>variable (column)</td>
+      <td>min-max</td>
+      <td>drop t3-t9</td>
     </tr>
     <tr>
-      <td>
-        <p>variable (column)</p>
-      </td>
-      <td>
-        <p>var1 var2</p>
-      </td>
-      <td>
-        <p>keep name sample</p>
-      </td>
+      <td>variable (column)</td>
+      <td>var1 var2</td>
+      <td>keep name sample</td>
     </tr>
     <tr>
-      <td>
-        <p>axis</p>
-      </td>
-      <td>
-        <p>min(step)max</p>
-      </td>
-      <td>
-        <p>0(10)50</p>
-      </td>
+      <td>axis</td>
+      <td>min(step)max</td>
+      <td>0(10)50</td>
     </tr>
   </table>
   <h1 id="TOC3">3. GENERAL GRAPH FORMATTING</h1>
@@ -649,144 +541,69 @@
   <p class="code">help textbox_options</p>
   <table>
     <tr>
-      <td>
-        <p>Type</p>
-      </td>
-      <td>
-        <p>Operator</p>
-      </td>
-      <td>
-        <p>Example</p>
-      </td>
-      <td>
-        <p>Result</p>
-      </td>
+      <th>Type</th>
+      <th>Operator</th>
+      <th>Example</th>
+      <th>Result</th>
     </tr>
     <tr>
-      <td>
-        <p>bold</p>
-      </td>
-      <td>
-        <p>{bf:[string]}</p>
-      </td>
-      <td>
-        <p>"{bf:Enzymes}"</p>
-      </td>
-      <td>
-        <p>Enzymes</p>
-      </td>
+      <td>bold</td>
+      <td>{bf:[string]}</td>
+      <td>"{bf:Enzymes}"</td>
+      <td><b>Enzymes</b></td>
     </tr>
     <tr>
-      <td>
-        <p>italic</p>
-      </td>
-      <td>
-        <p>{it:[string]}</p>
-      </td>
-      <td>
-        <p>"{it:B. fibrisolvens}"</p>
-      </td>
-      <td>
-        <p>B. fibrisolvens</p>
-      </td>
+      <td>italic</td>
+      <td>{it:[string]}</td>
+      <td>"{it:B. fibrisolvens}"</td>
+      <td><i>B. fibrisolvens</i></td>
     </tr>
     <tr>
-      <td>
-        <p>size</p>
-      </td>
-      <td>
-        <p>size([num])</p>
-      </td>
-      <td>
-        <p>size(3)</p>
-      </td>
-      <td>
-        <p>→ change font size</p>
-      </td>
+      <td>size</td>
+      <td>size([num])</td>
+      <td>size(3)</td>
+      <td>→ change font size</td>
     </tr>
     <tr>
-      <td>
-        <p>color</p>
-      </td>
-      <td>
-        <p>color([col])</p>
-      </td>
-      <td>
-        <p>color(black)</p>
-      </td>
-      <td>
-        <p>→ change font color</p>
-      </td>
+      <td>color</td>
+      <td>color([col])</td>
+      <td>color(black)</td>
+      <td>→ change font color</td>
     </tr>
     <tr>
-      <td>
-        <p>justification</p>
-      </td>
-      <td>
-        <p>justification([type])</p>
-      </td>
-      <td>
-        <p>Justification(left)</p>
-      </td>
-      <td>
-        <p>→ horizontal within textbox</p>
-      </td>
+      <td>justification</td>
+      <td>justification([type])</td>
+      <td>Justification(left)</td>
+      <td>→ horizontal within textbox</td>
     </tr>
     <tr>
-      <td>
-        <p>alignment</p>
-      </td>
-      <td>
-        <p>alignment([type])</p>
-      </td>
-      <td>
-        <p>alignment(middle)</p>
-      </td>
-      <td>
-        <p>→ vertical within textbox</p>
-      </td>
+      <td>alignment</td>
+      <td>alignment([type])</td>
+      <td>alignment(middle)</td>
+      <td>→ vertical within textbox</td>
     </tr>
     <tr>
-      <td>
-        <p>margin</p>
-      </td>
-      <td>
-        <p>margin([num])</p>
-      </td>
-      <td>
-        <p>margin(2)</p>
-      </td>
-      <td>
-        <p>→ between text and textbox border</p>
-      </td>
+      <td>margin</td>
+      <td>margin([num])</td>
+      <td>margin(2)</td>
+      <td>→ between text and textbox border</td>
     </tr>
     <tr>
-      <td>
-        <p>placement</p>
-      </td>
-      <td>
-        <p>placement([pos])placement(c)</p>
-      </td>
-      <td>
-        <p>placement(c)</p>
-      </td>
-      <td>
-        <p>→ location of entire textbox</p>
-      </td>
+      <td>placement</td>
+      <td>placement([pos])placement(c)</td>
+      <td>placement(c)</td>
+      <td>→ location of entire textbox</td>
     </tr>
   </table>
   <h2 id="TOC3_2">3.2. Size formatting</h2>
   <p>Size of the font, marker, line, etc can be changed in three different ways</p>
   <p class="code">help size</p>
   <ul>
-    <li>
-      <p>A defined size: [num]; e.g. size(2)</p>
+    <li>A defined size: [num]; e.g. size(2)
     </li>
-    <li>
-      <p>A multiplier: *[num]; e.g. size(*2); this changes the size relative to the set one</p>
+    <li>A multiplier: *[num]; e.g. size(*2); this changes the size relative to the set one
     </li>
-    <li>
-      <p>A type: [type]; e.g. size(medium), there is a whole range of named sizes</p>
+    <li>A type: [type]; e.g. size(medium), there is a whole range of named sizes
     </li>
   </ul>
   <p class="code">help linewidthstyle</p>
@@ -796,36 +613,32 @@
   <p>There are two different ways to set a color</p>
   <p class="code">help colorstyle</p>
   <ul>
-    <li>
-      <p>By defining the RGB, CMYK or HSV value (e.g. "32 206 250")</p>
+    <li>By defining the RGB, CMYK or HSV value (e.g. "32 206 250")
     </li>
-    <li>
-      <p>Preset color:</p>
+    <li>Preset color:
       <ul>
-        <li><p>There are many preset colors in default stata</p></li>
-        <li><p>See: <a href="http://1.bp.blogspot.com/-HAFAL8DGqtk/ViDL7QtayRI/AAAAAAAAACo/oNuFKuGsGJI/s1600/hue.jpg">Named colors in Stata</a></p></li>
-        <li><p>can further be manipulated by adding a muliplier (e.g. teal*1.5; marron*0.75)</p></li>
+        <li>There are many preset colors in default stata</li>
+        <li>See: <a href="http://1.bp.blogspot.com/-HAFAL8DGqtk/ViDL7QtayRI/AAAAAAAAACo/oNuFKuGsGJI/s1600/hue.jpg">Named colors in Stata</a></li>
+        <li>can further be manipulated by adding a muliplier (e.g. teal*1.5; marron*0.75)</li>
       </ul>
     </li>
   </ul>
   <h2 id="TOC3_4">3.4. Line and Marker style</h2>
   <p>Both the lines and the marker (data markers) can be altered</p>
   <ul>
-    <li>
-      <p>Line patterns (defined by a set name or a sequence)</p>
+    <li>Line patterns (defined by a set name or a sequence)
       <p class="code">help linepatternstyle</p>
       <ul>
-        <li><p>name: e.g. solid, dash, dot</p></li>
-        <li><p>sequence: e.g. "_--" (a long dash followed by two short dashes)</p></li>
+        <li>name: e.g. solid, dash, dot</li>
+        <li>sequence: e.g. "_--" (a long dash followed by two short dashes)</li>
       </ul>
     </li>
-    <li>
-      <p>Marker style (defined by a name or a abbr.)</p>
+    <li>Marker style (defined by a name or a abbr.)
       <p class="code">help symbolstyle</p>
       <ul>
-        <li><p>common names are (circle, diamond, triangle, square, pipe)</p></li>
-        <li><p>common abbr. for solid icons are (O, D, T, S, |), for hollow icons are (Oh, Dh, Th, Sh)</p></li>
-        <li><p>small cap letters create smaller markers</p></li>
+        <li>common names are (circle, diamond, triangle, square, pipe)</li>
+        <li>common abbr. for solid icons are (O, D, T, S, |), for hollow icons are (Oh, Dh, Th, Sh)</li>
+        <li>small cap letters create smaller markers</li>
       </ul>
     </li>
   </ul>
@@ -836,141 +649,73 @@
   <p class="code">help added_text_options</p>
   <table>
     <tr>
-      <td>
-        <p>Syntax</p>
-      </td>
-      <td>
-        <p>Description</p>
-      </td>
-      <td>
-        <p>Example</p>
-      </td>
+      <th>Syntax</th>
+      <th>Description</th>
+      <th>Example</th>
     </tr>
     <tr>
-      <td>
-        <p>title([string], [options])</p>
-      </td>
-      <td>
-        <p>add overall title</p>
-      </td>
-      <td>
-        <p>title("{bf:A}", axis(1) color(black) position(11) size(4))</p>
-      </td>
+      <td>title([string], [options])</td>
+      <td>add overall title</td>
+      <td>title("{bf:A}", axis(1) color(black) position(11) size(4))</td>
     </tr>
     <tr>
-      <td>
-        <p>xtitle([string], size(#))</p>
-      </td>
-      <td>
-        <p>add title to x-axis</p>
-      </td>
-      <td>
-        <p>ytitle(Wavelength (nm), size(3))</p>
-      </td>
+      <td>xtitle([string], size(#))</td>
+      <td>add title to x-axis</td>
+      <td>ytitle(Wavelength (nm), size(3))</td>
     </tr>
     <tr>
-      <td>
-        <p>ytitle( "`: var label [var]'")</p>
-      </td>
-      <td>
-        <p>show variables as heading of by()-graphs</p>
-      </td>
-      <td>
-        <p>ytitle( "`: var label protein'")</p>
-      </td>
+      <td>ytitle( "`: var label [var]'")</td>
+      <td>show variables as heading of by()-graphs</td>
+      <td>ytitle( "`: var label protein'")</td>
     </tr>
     <tr>
-      <td>
-        <p>subitle([string], [options])</p>
-      </td>
-      <td>
-        <p>add a subtitle</p>
-      </td>
-      <td>
-        <p>subtitle("{bf:Standard - 1st run}", placement(nwest) size(4))</p>
-      </td>
+      <td>subitle([string], [options])</td>
+      <td>add a subtitle</td>
+      <td>subtitle("{bf:Standard - 1st run}", placement(nwest) size(4))</td>
     </tr>
     <tr>
-      <td>
-        <p>yline([x-pos], [options])</p>
-      </td>
-      <td>
-        <p>add a horizontal line</p>
-      </td>
-      <td>
-        <p>yline(0, lcolor(black))</p>
-      </td>
+      <td>yline([x-pos], [options])</td>
+      <td>add a horizontal line</td>
+      <td>yline(0, lcolor(black))</td>
     </tr>
     <tr>
-      <td>
-        <p>xline([y-pos], [options])</p>
-      </td>
-      <td>
-        <p>add a vertical line</p>
-      </td>
-      <td>
-        <p>xline(6.374, lcolor(red*2) lw(vthin))</p>
-      </td>
+      <td>xline([y-pos], [options])</td>
+      <td>add a vertical line</td>
+      <td>xline(6.374, lcolor(red*2) lw(vthin))</td>
     </tr>
     <tr>
-      <td>
-        <p>text([x] [y] [string], [options])</p>
-      </td>
-      <td>
-        <p>add a textbox</p>
-      </td>
-      <td>
-        <p>text(320 70 "Debranched-Blank", size(2.5) placement(w))</p>
-      </td>
+      <td>text([x] [y] [string], [options])</td>
+      <td>add a textbox</td>
+      <td>text(320 70 "Debranched-Blank", size(2.5) placement(w))</td>
     </tr>
   </table>
   <h2 id="TOC3_6">3.6. Graphregion and Plotregion</h2>
   <p>The graph region is the complete area of the entire figure, including all axis, legends and titles and the plot region is only the graph itself (the displayed data points).</p>
   <ul>
-    <li><p>The margin of the graph region is the space between the edge of the figure and the rest</p></li>
-    <li><p>The margin of the plot region is the space between the graph and the axis and borders</p></li>
+    <li>The margin of the graph region is the space between the edge of the figure and the rest</li>
+    <li>The margin of the plot region is the space between the graph and the axis and borders</li>
   </ul>
   <p class="code">help region_options</p>
   <table>
     <tr>
-      <td>
-        <p>Example</p>
-      </td>
-      <td>
-        <p>Description</p>
-      </td>
+      <th>Example</th>
+      <th>Description</th>
     </tr>
     <tr>
-      <td>
-        <p>graphregion(color(white) margin(medsmall) lpattern(blank))</p>
-      </td>
-      <td>
-        <p>make the area around the graph white and remove lines</p>
-      </td>
+      <td>graphregion(color(white) margin(medsmall) lpattern(blank))</td>
+      <td>make the area around the graph white and remove lines</td>
     </tr>
     <tr>
-      <td>
-        <p>plotregion(margin(small))</p>
-      </td>
-      <td>
-        <p>decrease the margin between graph and axis</p>
-      </td>
+      <td>plotregion(margin(small))</td>
+      <td>decrease the margin between graph and axis</td>
     </tr>
     <tr>
-      <td>
-        <p>fxsize(95) fysize(91)</p>
-      </td>
-      <td>
-        <p>forze size</p>
-      </td>
+      <td>fxsize(95) fysize(91)</td>
+      <td>forze size</td>
     </tr>
     <tr>
-      <td>
-        <p>aspectratio(0.6)</p>
-      </td>
-      <td>
-        <p>ratio between x and y dimensions</p>
-      </td>
+      <td>aspectratio(0.6)</td>
+      <td>ratio between x and y dimensions</td>
     </tr>
   </table>
   <h2 id="TOC3_7">3.7. Action</h2>
@@ -978,69 +723,38 @@
   <p class="code">help graph export</p>
   <table>
     <tr>
-      <td>
-        <p>Example</p>
-      </td>
-      <td>
-        <p>Description</p>
-      </td>
+      <th>Example</th>
+      <th>Description</th>
     </tr>
     <tr>
-      <td>
-        <p>saving("X:\PhD\Graph1.gph", replace)</p>
-      </td>
-      <td>
-        <p>save the graph during building and replace the pervious version</p>
-      </td>
+      <td>saving("X:\PhD\Graph1.gph", replace)</td>
+      <td>save the graph during building and replace the pervious version</td>
     </tr>
     <tr>
-      <td>
-        <p>graph save Graph "/home/PhD/Areas_mean.gph", replace</p>
-      </td>
-      <td>
-        <p>save the graph after it was created, if the graph was not named, its default name is “Graph”</p>
-      </td>
+      <td>graph save Graph "/home/PhD/Areas_mean.gph", replace</td>
+      <td>save the graph after it was created, if the graph was not named, its default name is “Graph”</td>
     </tr>
     <tr>
-      <td>
-        <p>graph export "X:\PhD\Graph.png", as(png) width(1700) height(1200)</p>
-      </td>
-      <td>
-        <p>export the graph as png with specified dimensions, the graph is not named as it just exports the active one</p>
-      </td>
+      <td>graph export "X:\PhD\Graph.png", as(png) width(1700) height(1200)</td>
+      <td>export the graph as png with specified dimensions, the graph is not named as it just exports the active one</td>
     </tr>
     <tr>
-      <td>
-        <p>nodraw</p>
-      </td>
-      <td>
-        <p>don’t visually create the graph, used with graph combine</p>
-      </td>
+      <td>nodraw</td>
+      <td>don’t visually create the graph, used with graph combine</td>
     </tr>
     <tr>
-      <td>
-        <p>name(Gprotein, replace)</p>
-      </td>
-      <td>
-        <p>name the graph, used for graph combine</p>
-      </td>
+      <td>name(Gprotein, replace)</td>
+      <td>name the graph, used for graph combine</td>
     </tr>
   </table>
   <h1 id="TOC4">4. TWOWAY GRAPHS</h1>
   <p>Twoway graphs are almost all graphs that take in two correlated numerical variables, e.g. scatter, line, area and range plots. There is a whole range of different types of graphs. Useful links to get an idea are:</p>
   <p class="code">help graph_twoway</p>
   <ul>
-    <li>
-      <p><a href="https://www.stata.com/support/faqs/graphics/gph/stata-graphs/">https://www.stata.com/support/faqs/graphics/gph/stata-graphs/</a></p>
-    </li>
-    <li>
-      <p><a href="https://stats.oarc.ucla.edu/stata/modules/graph8/twoway/">https://stats.oarc.ucla.edu/stata/modules/graph8/twoway/</a></p>
-    </li>
-    <li>
-      <p><a href="https://stats.oarc.ucla.edu/stata/modules/graph8/intro/introduction-to-graphs-in-stata/">https://stats.oarc.ucla.edu/stata/modules/graph8/intro/introduction-to-graphs-in-stata/</a></p>
-    </li>
-    <li>
-      <p>You can test out the graphs by using the default test data</p>
+    <li><a href="https://www.stata.com/support/faqs/graphics/gph/stata-graphs/">https://www.stata.com/support/faqs/graphics/gph/stata-graphs/</a></li>
+    <li><a href="https://stats.oarc.ucla.edu/stata/modules/graph8/twoway/">https://stats.oarc.ucla.edu/stata/modules/graph8/twoway/</a></li>
+    <li><a href="https://stats.oarc.ucla.edu/stata/modules/graph8/intro/introduction-to-graphs-in-stata/">https://stats.oarc.ucla.edu/stata/modules/graph8/intro/introduction-to-graphs-in-stata/</a></li>
+    <li>You can test out the graphs by using the default test data
     </li>
   </ul>
   <p class="code indent">→ sysuse auto.dta</p>
@@ -1064,169 +778,79 @@
   <p class="code">→ xlabel(#8, noticks grid valuelabel)</p>
   <table>
     <tr>
-      <td>
-        <p>Example</p>
-      </td>
-      <td>
-        <p>Description</p>
-      </td>
-      <td>
-        <p>Options</p>
-      </td>
+      <th>Example</th>
+      <th>Description</th>
+      <th>Options</th>
     </tr>
     <tr>
-      <td>
-        <p>xlabel(#6)</p>
-      </td>
-      <td>
-        <p>six major ticks</p>
-      </td>
-      <td>
-        <p></p>
-      </td>
+      <td>xlabel(#6)</td>
+      <td>six major ticks</td>
+      <td></td>
     </tr>
     <tr>
-      <td>
-        <p>xmtick(##5)</p>
-      </td>
-      <td>
-        <p>five minor ticks</p>
-      </td>
-      <td>
-        <p></p>
-      </td>
+      <td>xmtick(##5)</td>
+      <td>five minor ticks</td>
+      <td></td>
     </tr>
     <tr>
-      <td>
-        <p>axis(1)</p>
-      </td>
-      <td>
-        <p>select axis (if there are multiple)</p>
-      </td>
-      <td>
-        <p></p>
-      </td>
+      <td>axis(1)</td>
+      <td>select axis (if there are multiple)</td>
+      <td></td>
     </tr>
     <tr>
-      <td>
-        <p>format(%#.#f)</p>
-      </td>
-      <td>
-        <p>format numbers</p>
-      </td>
-      <td>
-        <p>format(%5.2f) -&gt; 15000.00</p>
-      </td>
+      <td>format(%#.#f)</td>
+      <td>format numbers</td>
+      <td>format(%5.2f) -&gt; 15000.00</td>
     </tr>
     <tr>
-      <td>
-        <p>valuelabel</p>
-      </td>
-      <td>
-        <p>use value labels of variable</p>
-      </td>
-      <td>
-        <p></p>
-      </td>
+      <td>valuelabel</td>
+      <td>use value labels of variable</td>
+      <td></td>
     </tr>
     <tr>
-      <td>
-        <p>angle(0)</p>
-      </td>
-      <td>
-        <p>angle of labels</p>
-      </td>
-      <td>
-        <p>imargin(1 1 1 1) or imargin(vsmall)</p>
-      </td>
+      <td>angle(0)</td>
+      <td>angle of labels</td>
+      <td>imargin(1 1 1 1) or imargin(vsmall)</td>
     </tr>
     <tr>
-      <td>
-        <p>alternate</p>
-      </td>
-      <td>
-        <p>offset adjacent labels</p>
-      </td>
-      <td>
-        <p>graphregion(color(white))</p>
-      </td>
+      <td>alternate</td>
+      <td>offset adjacent labels</td>
+      <td>graphregion(color(white))</td>
     </tr>
     <tr>
-      <td>
-        <p>noticks</p>
-      </td>
-      <td>
-        <p>hide ticks</p>
-      </td>
-      <td>
-        <p>ticks → show ticks</p>
-      </td>
+      <td>noticks</td>
+      <td>hide ticks</td>
+      <td>ticks → show ticks</td>
     </tr>
     <tr>
-      <td>
-        <p>nogrid</p>
-      </td>
-      <td>
-        <p>hide grid</p>
-      </td>
-      <td>
-        <p>xsize(5.5) ysize(5)</p>
-      </td>
+      <td>nogrid</td>
+      <td>hide grid</td>
+      <td>xsize(5.5) ysize(5)</td>
     </tr>
     <tr>
-      <td>
-        <p>labcolor(black)</p>
-      </td>
-      <td>
-        <p>change color of the labels</p>
-      </td>
-      <td>
-        <p></p>
-      </td>
+      <td>labcolor(black)</td>
+      <td>change color of the labels</td>
+      <td></td>
     </tr>
     <tr>
-      <td>
-        <p>labsize(3)</p>
-      </td>
-      <td>
-        <p>set size of labels</p>
-      </td>
-      <td>
-        <p></p>
-      </td>
+      <td>labsize(3)</td>
+      <td>set size of labels</td>
+      <td></td>
     </tr>
     <tr>
-      <td>
-        <p>tlcolor(blue*1.5)</p>
-      </td>
-      <td>
-        <p>set tick color</p>
-      </td>
-      <td>
-        <p></p>
-      </td>
+      <td>tlcolor(blue*1.5)</td>
+      <td>set tick color</td>
+      <td></td>
     </tr>
     <tr>
-      <td>
-        <p>tlength(*1.5)</p>
-      </td>
-      <td>
-        <p>alter the length of the tick</p>
-      </td>
-      <td>
-        <p></p>
-      </td>
+      <td>tlength(*1.5)</td>
+      <td>alter the length of the tick</td>
+      <td></td>
     </tr>
     <tr>
-      <td>
-        <p>tlwidth</p>
-      </td>
-      <td>
-        <p>alter the width ot the ticks</p>
-      </td>
-      <td>
-        <p></p>
-      </td>
+      <td>tlwidth</td>
+      <td>alter the width ot the ticks</td>
+      <td></td>
     </tr>
   </table>
   <h3 id="TOC4_2_2">4.2.2. Axis scale options</h3>
@@ -1235,92 +859,48 @@
   <p class="code">xscale([options])</p>
   <table>
     <tr>
-      <td>
-        <p>Example</p>
-      </td>
-      <td>
-        <p>Description</p>
-      </td>
+      <th>Example</th>
+      <th>Description</th>
     </tr>
     <tr>
-      <td>
-        <p>axis(1)</p>
-      </td>
-      <td>
-        <p>select axis (if there are multiple)</p>
-      </td>
+      <td>axis(1)</td>
+      <td>select axis (if there are multiple)</td>
     </tr>
     <tr>
-      <td>
-        <p>range(1 10)</p>
-      </td>
-      <td>
-        <p>expand axis to given range</p>
-      </td>
+      <td>range(1 10)</td>
+      <td>expand axis to given range</td>
     </tr>
     <tr>
-      <td>
-        <p>reverse</p>
-      </td>
-      <td>
-        <p>reverse scale to run from max to min</p>
-      </td>
+      <td>reverse</td>
+      <td>reverse scale to run from max to min</td>
     </tr>
     <tr>
-      <td>
-        <p>alt</p>
-      </td>
-      <td>
-        <p>move axis from left to right or from top to bottom</p>
-      </td>
+      <td>alt</td>
+      <td>move axis from left to right or from top to bottom</td>
     </tr>
     <tr>
-      <td>
-        <p>noline</p>
-      </td>
-      <td>
-        <p>hide line</p>
-      </td>
+      <td>noline</td>
+      <td>hide line</td>
     </tr>
     <tr>
-      <td>
-        <p>noextend</p>
-      </td>
-      <td>
-        <p>do not extend the line</p>
-      </td>
+      <td>noextend</td>
+      <td>do not extend the line</td>
     </tr>
     <tr>
-      <td>
-        <p>titlegap(2)</p>
-      </td>
-      <td>
-        <p>gap between title and labels</p>
-      </td>
+      <td>titlegap(2)</td>
+      <td>gap between title and labels</td>
     </tr>
     <tr>
-      <td>
-        <p>outergap(0)</p>
-      </td>
-      <td>
-        <p>gap between title and graph border</p>
-      </td>
+      <td>outergap(0)</td>
+      <td>gap between title and graph border</td>
     </tr>
     <tr>
-      <td>
-        <p>lcolor(black)</p>
-      </td>
-      <td>
-        <p>color of the axis line</p>
-      </td>
+      <td>lcolor(black)</td>
+      <td>color of the axis line</td>
     </tr>
     <tr>
-      <td>
-        <p>lwidth(thin)</p>
-      </td>
-      <td>
-        <p>thickness of the axis line</p>
-      </td>
+      <td>lwidth(thin)</td>
+      <td>thickness of the axis line</td>
     </tr>
   </table>
   <h2 id="TOC4_3">4.3. Legend</h2>
@@ -1332,124 +912,64 @@
   <p class="code">→ legend(col(2) colfirst size(3) region(lcolor(white)) ///  symxsize(*0.5) holes(5 9) ///  order(- "GH13:" 1 2 3 - "GH57:" 4 5 6)) ///</p>
   <table>
     <tr>
-      <td>
-        <p>Example</p>
-      </td>
-      <td>
-        <p>Description</p>
-      </td>
+      <th>Example</th>
+      <th>Description</th>
     </tr>
     <tr>
-      <td>
-        <p>off</p>
-      </td>
-      <td>
-        <p>hide legend</p>
-      </td>
+      <td>off</td>
+      <td>hide legend</td>
     </tr>
     <tr>
-      <td>
-        <p>position(12)</p>
-      </td>
-      <td>
-        <p>location of legend by clock position</p>
-      </td>
+      <td>position(12)</td>
+      <td>location of legend by clock position</td>
     </tr>
     <tr>
-      <td>
-        <p>at(3)</p>
-      </td>
-      <td>
-        <p>position of legend as "graph" -&gt; insert into hole in by()-graph</p>
-      </td>
+      <td>at(3)</td>
+      <td>position of legend as "graph" -&gt; insert into hole in by()-graph</td>
     </tr>
     <tr>
-      <td>
-        <p>cols(2) rows(3)</p>
-      </td>
-      <td>
-        <p>number of columns and rows</p>
-      </td>
+      <td>cols(2) rows(3)</td>
+      <td>number of columns and rows</td>
     </tr>
     <tr>
-      <td>
-        <p>colfirst</p>
-      </td>
-      <td>
-        <p>fill columns first</p>
-      </td>
+      <td>colfirst</td>
+      <td>fill columns first</td>
     </tr>
     <tr>
-      <td>
-        <p>width(30) height(3)</p>
-      </td>
-      <td>
-        <p>dimensions of the legend</p>
-      </td>
+      <td>width(30) height(3)</td>
+      <td>dimensions of the legend</td>
     </tr>
     <tr>
-      <td>
-        <p>span</p>
-      </td>
-      <td>
-        <p>center legend</p>
-      </td>
+      <td>span</td>
+      <td>center legend</td>
     </tr>
     <tr>
-      <td>
-        <p>outergap(0)</p>
-      </td>
-      <td>
-        <p>gap between title and graph border</p>
-      </td>
+      <td>outergap(0)</td>
+      <td>gap between title and graph border</td>
     </tr>
     <tr>
-      <td>
-        <p>lcolor(black)</p>
-      </td>
-      <td>
-        <p>color of the axis line</p>
-      </td>
+      <td>lcolor(black)</td>
+      <td>color of the axis line</td>
     </tr>
     <tr>
-      <td>
-        <p>region(lc(white) margin(large))</p>
-      </td>
-      <td>
-        <p>no border, large margin</p>
-      </td>
+      <td>region(lc(white) margin(large))</td>
+      <td>no border, large margin</td>
     </tr>
     <tr>
-      <td>
-        <p>size(#)</p>
-      </td>
-      <td>
-        <p>textsize</p>
-      </td>
+      <td>size(#)</td>
+      <td>textsize</td>
     </tr>
     <tr>
-      <td>
-        <p>symysize(*0.05) symxsize(2)</p>
-      </td>
-      <td>
-        <p>dimesions of symbols in legend</p>
-      </td>
+      <td>symysize(*0.05) symxsize(2)</td>
+      <td>dimesions of symbols in legend</td>
     </tr>
     <tr>
-      <td>
-        <p>order(- “All” 1 “Start” 2 “End”</p>
-      </td>
-      <td>
-        <p>Relabel and reorder all labels “-” inserts a subtitle at this position</p>
-      </td>
+      <td>order(- “All” 1 “Start” 2 “End”</td>
+      <td>Relabel and reorder all labels “-” inserts a subtitle at this position</td>
     </tr>
     <tr>
-      <td>
-        <p>subtitle("Time (min)", size(3.5))</p>
-      </td>
-      <td>
-        <p>add subtitle to legend</p>
-      </td>
+      <td>subtitle("Time (min)", size(3.5))</td>
+      <td>add subtitle to legend</td>
     </tr>
   </table>
   <h2 id="TOC4_4">4.4. Markers</h2>
@@ -1459,76 +979,40 @@
   <p class="code">→ scatter wlmean abmean if sample==10, msym(T) msize(2) ///  mcolor(gs8) mlwidth(medthick)</p>
   <table>
     <tr>
-      <td>
-        <p>Example</p>
-      </td>
-      <td>
-        <p>Description</p>
-      </td>
+      <th>Example</th>
+      <th>Description</th>
     </tr>
     <tr>
-      <td>
-        <p>msymbols(O)</p>
-      </td>
-      <td>
-        <p>type of symbol → See Section <a href="#TOC3_4">3.4</a></p>
-      </td>
+      <td>msymbols(O)</td>
+      <td>type of symbol → See Section <a href="#TOC3_4">3.4</a></td>
     </tr>
     <tr>
-      <td>
-        <p>msize(2.5)</p>
-      </td>
-      <td>
-        <p>size of marker</p>
-      </td>
+      <td>msize(2.5)</td>
+      <td>size of marker</td>
     </tr>
     <tr>
-      <td>
-        <p>mcolor(blue*1.5)</p>
-      </td>
-      <td>
-        <p>color of the entire marker</p>
-      </td>
+      <td>mcolor(blue*1.5)</td>
+      <td>color of the entire marker</td>
     </tr>
     <tr>
-      <td>
-        <p>mfcolor(black grey)</p>
-      </td>
-      <td>
-        <p>fill color (of two data sets)</p>
-      </td>
+      <td>mfcolor(black grey)</td>
+      <td>fill color (of two data sets)</td>
     </tr>
     <tr>
-      <td>
-        <p>mlcolor(gs6)</p>
-      </td>
-      <td>
-        <p>color of the outline</p>
-      </td>
+      <td>mlcolor(gs6)</td>
+      <td>color of the outline</td>
     </tr>
     <tr>
-      <td>
-        <p>mlwidth(thin thin thin)</p>
-      </td>
-      <td>
-        <p>thickness of the marker outline (set all three to thin)</p>
-      </td>
+      <td>mlwidth(thin thin thin)</td>
+      <td>thickness of the marker outline (set all three to thin)</td>
     </tr>
     <tr>
-      <td>
-        <p>mangle(22)</p>
-      </td>
-      <td>
-        <p>angle of the marker</p>
-      </td>
+      <td>mangle(22)</td>
+      <td>angle of the marker</td>
     </tr>
     <tr>
-      <td>
-        <p>barbsize(thick)</p>
-      </td>
-      <td>
-        <p>for twoway pcarrow (size of filled portion of arrowhead)</p>
-      </td>
+      <td>barbsize(thick)</td>
+      <td>for twoway pcarrow (size of filled portion of arrowhead)</td>
     </tr>
   </table>
   <h2 id="TOC4_5">4.5.</a>Marker labels</h2>
@@ -1536,75 +1020,48 @@
   <p class="code">help marker_label_options</p>
   <table>
     <tr>
-      <td>
-        <p>Example</p>
-      </td>
-      <td>
-        <p>Description</p>
-      </td>
+      <th>Example</th>
+      <th>Description</th>
     </tr>
     <tr>
-      <td>
-        <p>mlabel(samples)</p>
-      </td>
-      <td>
-        <p>use the variable “samples” to label the data points</p>
-      </td>
+      <td>mlabel(samples)</td>
+      <td>use the variable “samples” to label the data points</td>
     </tr>
     <tr>
-      <td>
-        <p>mlabposition(12)</p>
-      </td>
-      <td>
-        <p>position the labels north of the markers</p>
-      </td>
+      <td>mlabposition(12)</td>
+      <td>position the labels north of the markers</td>
     </tr>
     <tr>
-      <td>
-        <p>mlabangle(0 45)</p>
-      </td>
-      <td>
-        <p>angle the labels of the second data set at 45°</p>
-      </td>
+      <td>mlabangle(0 45)</td>
+      <td>angle the labels of the second data set at 45°</td>
     </tr>
     <tr>
-      <td>
-        <p>mlabcolor(blue*2 green purple)</p>
-      </td>
-      <td>
-        <p>color the labels blue, green and purple</p>
-      </td>
+      <td>mlabcolor(blue*2 green purple)</td>
+      <td>color the labels blue, green and purple</td>
     </tr>
     <tr>
-      <td>
-        <p>mlabsize(3)</p>
-      </td>
-      <td>
-        <p>font size</p>
-      </td>
+      <td>mlabsize(3)</td>
+      <td>font size</td>
     </tr>
   </table>
   <h2 id="TOC4_6">4.6. Other types</h2>
   <ul>
-    <li>
-      <p>Line graph</p>
+    <li>Line graph
       <p class="code">help connect_options</p>
       <ul>
-        <li><p>lcolor(black)</p></li>
-        <li><p>lwidth(thin)</p></li>
-        <li><p>lpattern(dash)</p></li>
+        <li>lcolor(black)</li>
+        <li>lwidth(thin)</li>
+        <li>lpattern(dash)</li>
       </ul>
     </li>
-    <li>
-      <p>Bars</p>
+    <li>Bars
       <p class="code">help twoway_bar</p>
       <ul>
-        <li><p>barwidth(0.3)</p></li>
-        <li><p>bcolor(red*0.5)</p></li>
+        <li>barwidth(0.3)</li>
+        <li>bcolor(red*0.5)</li>
       </ul>
     </li>
-    <li>
-      <p>All options</p>
+    <li>All options
       <p class="code">help scatter##twoway_options</p>
     </li>
   </ul>
@@ -1627,104 +1084,56 @@
   <h3 id="TOC5_1_1">5.1.1. General</h3>
   <table>
     <tr>
-      <td>
-        <p>Example</p>
-      </td>
-      <td>
-        <p>Description</p>
-      </td>
+      <th>Example</th>
+      <th>Description</th>
     </tr>
     <tr>
-      <td>
-        <p>bar(1, [options])</p>
-      </td>
-      <td>
-        <p>change look of each bar (numbered by appearance (here its the first))</p>
-      </td>
+      <td>bar(1, [options])</td>
+      <td>change look of each bar (numbered by appearance (here its the first))</td>
     </tr>
     <tr>
-      <td>
-        <p>sort(ID)</p>
-      </td>
-      <td>
-        <p>sort bars using the variable “ID”</p>
-      </td>
+      <td>sort(ID)</td>
+      <td>sort bars using the variable “ID”</td>
     </tr>
     <tr>
-      <td>
-        <p>stack</p>
-      </td>
-      <td>
-        <p>stack data sets (only if they are separate variables</p>
-      </td>
+      <td>stack</td>
+      <td>stack data sets (only if they are separate variables</td>
     </tr>
     <tr>
-      <td>
-        <p>nofill</p>
-      </td>
-      <td>
-        <p>omit missing samples</p>
-      </td>
+      <td>nofill</td>
+      <td>omit missing samples</td>
     </tr>
     <tr>
-      <td>
-        <p>bargap(3)</p>
-      </td>
-      <td>
-        <p>gap between bars</p>
-      </td>
+      <td>bargap(3)</td>
+      <td>gap between bars</td>
     </tr>
     <tr>
-      <td>
-        <p>asyvars</p>
-      </td>
-      <td>
-        <p>treat groups in over() as individual variables, to change look of bar</p>
-      </td>
+      <td>asyvars</td>
+      <td>treat groups in over() as individual variables, to change look of bar</td>
     </tr>
   </table>
   <h3 id="TOC5_1_2">5.1.2. Bar options</h3>
   <p>For bar(1, [options])</p>
   <table>
     <tr>
-      <td>
-        <p>Example</p>
-      </td>
-      <td>
-        <p>Description</p>
-      </td>
+      <th>Example</th>
+      <th>Description</th>
     </tr>
     <tr>
-      <td>
-        <p>color(red*2)</p>
-      </td>
-      <td>
-        <p>fill and outline color</p>
-      </td>
+      <td>color(red*2)</td>
+      <td>fill and outline color</td>
     </tr>
     <tr>
-      <td>
-        <p>lcolor(black)</p>
-      </td>
-      <td>
-        <p>outline color</p>
-      </td>
+      <td>lcolor(black)</td>
+      <td>outline color</td>
     </tr>
     <tr>
-      <td>
-        <p>fcolor(black)</p>
-      </td>
-      <td>
-        <p>fill color</p>
-      </td>
+      <td>fcolor(black)</td>
+      <td>fill color</td>
     </tr>
     <tr>
-      <td>
-        <p>lwidth(thin)</p>
-      </td>
-      <td>
-        <p>ouline width</p>
-      </td>
+      <td>lwidth(thin)</td>
+      <td>ouline width</td>
     </tr>
   </table>
   <h2 id="TOC5_2">5.2. Xtline graphs</h2>
@@ -1744,70 +1153,34 @@
   <p>Typical options are as followed</p>
   <table>
     <tr>
-      <td>
-        <p>Option</p>
-      </td>
-      <td>
-        <p>Description</p>
-      </td>
-      <td>
-        <p>Example</p>
-      </td>
+      <th>Option</th>
+      <th>Description</th>
+      <th>Example</th>
     </tr>
     <tr>
-      <td>
-        <p>colfirst</p>
-      </td>
-      <td>
-        <p>fill column before rows</p>
-      </td>
-      <td>
-        <p>colfirst</p>
-      </td>
+      <td>colfirst</td>
+      <td>fill column before rows</td>
+      <td>colfirst</td>
     </tr>
     <tr>
-      <td>
-        <p>note([string])</p>
-      </td>
-      <td>
-        <p>alter or delete the note</p>
-      </td>
-      <td>
-        <p>note("") → deletes it</p>
-      </td>
+      <td>note([string])</td>
+      <td>alter or delete the note</td>
+      <td>note("") → deletes it</td>
     </tr>
     <tr>
-      <td>
-        <p>legend(at[num])</p>
-      </td>
-      <td>
-        <p>define it which cell the legend should be displayed</p>
-      </td>
-      <td>
-        <p>legend(at(6) pos(c)) → legend centered in hole of by()-graph</p>
-      </td>
+      <td>legend(at[num])</td>
+      <td>define it which cell the legend should be displayed</td>
+      <td>legend(at(6) pos(c)) → legend centered in hole of by()-graph</td>
     </tr>
     <tr>
-      <td>
-        <p>edgelable</p>
-      </td>
-      <td>
-        <p>show only axis at edges</p>
-      </td>
-      <td>
-        <p>edgelable</p>
-      </td>
+      <td>edgelable</td>
+      <td>show only axis at edges</td>
+      <td>edgelable</td>
     </tr>
     <tr>
-      <td>
-        <p>iyaxes</p>
-      </td>
-      <td>
-        <p>show individual y-axes</p>
-      </td>
-      <td>
-        <p>iyaxis</p>
-      </td>
+      <td>iyaxes</td>
+      <td>show individual y-axes</td>
+      <td>iyaxis</td>
     </tr>
   </table>
   <h2 id="TOC6_2">6.2. Addplot</h2>
@@ -1824,71 +1197,39 @@
   <p>Common options are</p>
   <table>
     <tr>
-      <td>
-        <p>Option</p>
-      </td>
-      <td>
-        <p>Description</p>
-      </td>
-      <td>
-        <p>Example</p>
-      </td>
+      <th>Option</th>
+      <th>Description</th>
+      <th>Example</th>
     </tr>
     <tr>
-      <td>
-        <p>label(labsize([num]))</p>
-      </td>
-      <td>
-        <p>resize the labels of each group</p>
-      </td>
-      <td>
-        <p>label(labsize(3))</p>
-      </td>
+      <td>label(labsize([num]))</td>
+      <td>resize the labels of each group</td>
+      <td>label(labsize(3))</td>
     </tr>
     <tr>
-      <td>
-        <p>label(nolabel)</p>
-      </td>
-      <td>
-        <p>don’t show group labels</p>
-      </td>
-      <td>
-        <p>label(nolabel)</p>
-      </td>
+      <td>label(nolabel)</td>
+      <td>don’t show group labels</td>
+      <td>label(nolabel)</td>
     </tr>
     <tr>
-      <td>
-        <p>gap([num])</p>
-      </td>
-      <td>
-        <p>resize the gap between groups</p>
-      </td>
-      <td>
-        <p>gap(*0.5)</p>
-      </td>
+      <td>gap([num])</td>
+      <td>resize the gap between groups</td>
+      <td>gap(*0.5)</td>
     </tr>
     <tr>
-      <td>
-        <p>sort([var])</p>
-      </td>
-      <td>
-        <p>csort within a group</p>
-      </td>
-      <td>
-        <p>sort(ID)</p>
-      </td>
+      <td>sort([var])</td>
+      <td>csort within a group</td>
+      <td>sort(ID)</td>
     </tr>
   </table>
   <h2 id="TOC6_4">6.4. Graph combine</h2>
   <p>Graph combine is a command that can be used after creating and saving the graphs, thus creating a new graph. This is used for combining all types of different graphs.</p>
   <p class="code">help graph combine</p>
   <ol>
-    <li>
-      <p>Create all graphs individually and save them with a name</p>
+    <li>Create all graphs individually and save them with a name
       <p class="code">→ saving("/home/user/Documents/graph1.gph", replace)</p>
     </li>
-    <li>
-      <p>Combine the graphs by using the syntax</p>
+    <li>Combine the graphs by using the syntax
       <p class="code">→ graph combine [plot list], [options]</p>
       <p class="code">→ graph combine "/home/user/Documents/graph1.gph" ///</p>
       <p class="code indent">"/home/user /Documents/graph2.gph" ///</p>
@@ -1898,135 +1239,62 @@
     </li>
   </ol>
   <p>If the options from this operator are not enough, there is also a add-on called grc1leg which works similarly but has more options</p>
-
-  <!-- </ol>
-
-  <ol>
-    <li>
-      <p>2.Combine the graphs by using the syntax</p>
-    </li> -->
   </ol>
 <table>
     <tr>
-      <td>
-        <p>Option</p>
-      </td>
-      <td>
-        <p>Description</p>
-      </td>
-      <td>
-        <p>Example</p>
-      </td>
+      <th>Option</th>
+      <th>Description</th>
+      <th>Example</th>
     </tr>
     <tr>
-      <td>
-        <p>l1title</p>
-      </td>
-      <td>
-        <p>combined title for y-axis</p>
-      </td>
-      <td>
-        <p>l1title("Absorbance (AU)", size(3.5))</p>
-      </td>
+      <td>l1title</td>
+      <td>combined title for y-axis</td>
+      <td>l1title("Absorbance (AU)", size(3.5))</td>
     </tr>
     <tr>
-      <td>
-        <p>b1title</p>
-      </td>
-      <td>
-        <p>combined title for x-axis</p>
-      </td>
-      <td>
-        <p>b1title("Wavelength (nm)", size(3.5))</p>
-      </td>
+      <td>b1title</td>
+      <td>combined title for x-axis</td>
+      <td>b1title("Wavelength (nm)", size(3.5))</td>
     </tr>
     <tr>
-      <td>
-        <p>iscale</p>
-      </td>
-      <td>
-        <p>rescale all text and markers</p>
-      </td>
-      <td>
-        <p>iscale(0.35)</p>
-      </td>
+      <td>iscale</td>
+      <td>rescale all text and markers</td>
+      <td>iscale(0.35)</td>
     </tr>
     <tr>
-      <td>
-        <p>xcommon</p>
-      </td>
-      <td>
-        <p>common range of x-axes</p>
-      </td>
-      <td>
-        <p>edgelable</p>
-      </td>
+      <td>xcommon</td>
+      <td>common range of x-axes</td>
+      <td>edgelable</td>
     </tr>
     <tr>
-      <td>
-        <p>commonscheme</p>
-      </td>
-      <td>
-        <p>gives all subgraphs a commom scheme</p>
-      </td>
-      <td>
-        <p></p>
-      </td>
+      <td>commonscheme</td>
+      <td>gives all subgraphs a commom scheme</td>
+      <td></td>
     </tr>
     <tr>
-      <td>
-        <p>imargin</p>
-      </td>
-      <td>
-        <p>margins of each subgraph</p>
-      </td>
-      <td>
-        <p>imargin(1 1 1 1) or imargin(vsmall)</p>
-      </td>
+      <td>imargin</td>
+      <td>margins of each subgraph</td>
+      <td>imargin(1 1 1 1) or imargin(vsmall)</td>
     </tr>
     <tr>
-      <td>
-        <p>graphregion</p>
-      </td>
-      <td>
-        <p>alter the</p>
-      </td>
-      <td>
-        <p>graphregion(color(white))</p>
-      </td>
+      <td>graphregion</td>
+      <td>alter the</td>
+      <td>graphregion(color(white))</td>
     </tr>
     <tr>
-      <td>
-        <p>cols([num])</p>
-      </td>
-      <td>
-        <p>number of columns</p>
-      </td>
-      <td>
-        <p>cols(2)</p>
-      </td>
+      <td>cols([num])</td>
+      <td>number of columns</td>
+      <td>cols(2)</td>
     </tr>
     <tr>
-      <td>
-        <p>xsize, ysize</p>
-      </td>
-      <td>
-        <p>dimensions in inches</p>
-      </td>
-      <td>
-        <p>xsize(5.5) ysize(5)</p>
-      </td>
+      <td>xsize, ysize</td>
+      <td>dimensions in inches</td>
+      <td>xsize(5.5) ysize(5)</td>
     </tr>
     <tr>
-      <td>
-        <p>legendfrom()</p>
-      </td>
-      <td>
-        <p>only for grc1leg</p>
-      </td>
-      <td>
-        <p>legendfrom("X:\Graph1.gph")</p>
-      </td>
+      <td>legendfrom()</td>
+      <td>only for grc1leg</td>
+      <td>legendfrom("X:\Graph1.gph")</td>
     </tr>
   </table>
   <h1 id="TOC7">7. GRAPH EXAMPLES</h1>
