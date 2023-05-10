@@ -2,11 +2,71 @@
 <html>
 <head>
   <title>Manuals</title>
-  
+  <style type="text/css">
+    h1, h2, h3, .title {
+      color:black;
+      font-weight:bold;
+      font-size: 100%;
+      font-family: Cambria;
+      padding: 2px;
+      margin: 15px 0 0 2px;
+    }
+    .title {
+      font-size:250%;
+      border: none;
+      text-align: center;
+    }
+    h1 {
+      font-size:140%;
+      border-bottom:1.5px solid black;
+    }
+    h2 {
+      font-size:  120%;
+    }
+    .Content_1, .Content_2 {
+      color:black;
+      font-size:60%;
+      font-family:Cambria;
+      margin: 0;
+    }
+    .Content_1 {
+      border-top: 1px solid black;
+      margin-top: 5px;
+      font-size:70%;
+    }
+    p {
+      color:black;
+      font-size:80%;
+      font-family:Cambria;
+      margin: 0 0 5px 2px;
+    }
+    .code {
+      font-size:70%;
+      font-family:Courier New;
+      padding: 0;
+      margin: 0 0 2px 20px;
+    }
+
+    .indent {
+      margin-left:40px;
+      /* text-indent: -1cm; */
+    }
+
+    .spacer {
+      margin: 20px;
+    }
+
+    ul {
+      margin: 0;
+    }
+    ul li {
+      margin: 0;
+    }
+      </style>
 </head>
 <body>
-  <h1>Stata operators</h1>
-  <h2>Table of Contents</h2>
+  <h1 class="title">Stata syntax</h1>
+  <h1>Table of Contents</h1>
   <table>
     <tr>
       <td>
@@ -227,19 +287,14 @@
   <p></p>
   <h1 id="TOC1">1. GENERAL</h1>
   <p>Stata has four main windows and a whole range of additional windows for manual processing. Most things can be conducted without scripting but Stata does encourage writing commands.</p>
+  <p class="spacer"></p>
   <p>I primarily used Stata to create graphs using scripts I wrote. Therefore, this introduction in mainly focused on this explaining the syntax of graph commands.</p>
   <h2 id="TOC1_1">1.1. Main window</h2>
   <p>The main window from with all others are accessed</p>
   <ul>
-    <li>
-      <p>The bottom section is a command line, simple commands can be written there directly but for more complex one, .do files are a better choice</p>
-    </li>
-    <li>
-      <p>The left area lists all conducted commands, clicking on them re-runs them</p>
-    </li>
-    <li>
-      <p>The center section lists all the conducted commands, processed .do files and all the results. Its especially helpful to learn new commands as all types of actions, appear here as commands</p>
-    </li>
+    <li><p>The bottom section is a command line, simple commands can be written there directly but for more complex one, .do files are a better choice</p></li>
+    <li><p>The left area lists all conducted commands, clicking on them re-runs them</p></li>
+    <li><p>The center section lists all the conducted commands, processed .do files and all the results. Its especially helpful to learn new commands as all types of actions, appear here as commands</p></li>
   </ul>
   <h2 id="TOC1_2">1.2. Data Editor</h2>
   <p>The data editor stores the input data as in a speadsheet</p>
@@ -247,43 +302,29 @@
     <li>
       <p>It has two modes</p>
       <ul>
-        <li>
-          <p>Edit (pencil icon): lets you modify, add and delete the data</p>
-        </li>
-        <li>
-          <p>Browse (maginfer): it used for browsing and sorting data</p>
-        </li>
+        <li><p>Edit (pencil icon): lets you modify, add and delete the data</p></li>
+        <li><p>Browse (maginfer): it used for browsing and sorting data</p></li>
       </ul>
     </li>
   </ul>
   <h2 id="TOC1_3">1.3. Do-file Editor</h2>
   <p>Do-files are the program scripts one can write to automate and speed up the processing</p>
   <ul>
-    <li>
-      <p>// is used for comments</p>
-    </li>
-    <li>
-      <p>/// at the end of line (with leading space) is used to continue the script in the next line without breaking the line</p>
-    </li>
+    <li><p>// is used for comments</p></li>
+    <li><p>/// at the end of line (with leading space) is used to continue the script in the next line without breaking the line</p></li>
   </ul>
   <h2 id="TOC1_4">1.4. Viewer</h2>
   <p>Stata has a very useful viewer to check all the operators and commands. Simply write:</p>
-  <p>help [operator]</p>
-  <p>→ help twoway</p>
+  <p class="code">help [operator]</p>
+  <p class="code">→ help twoway</p>
   <p>in the terminal in the main window to open the viewer.</p>
   <h2 id="TOC1_5">1.5. Graph Editor</h2>
   <p>Created graphs automatically appear in the graph viewer. Graphs can also be always opened there, regardless of the data currently loaded.</p>
   <p>One want to manually edit the graph by clicking on the small graph icon in the task bar and starting the Graph Editor</p>
   <ul>
-    <li>
-      <p>There, everything expect the data can be modified, including labels, ratios, colors and axes</p>
-    </li>
-    <li>
-      <p>The rest of Stata is locked as long at the Graph Editor is active</p>
-    </li>
-    <li>
-      <p>You can also record you edits</p>
-    </li>
+    <li><p>There, everything expect the data can be modified, including labels, ratios, colors and axes</p></li>
+    <li><p>The rest of Stata is locked as long at the Graph Editor is active</p></li>
+    <li><p>You can also record you edits</p></li>
   </ul>
   <h1 id="TOC2">2. DATA MODIFICATION</h1>
   <h2 id="TOC2_1">2.1. Import Data</h2>
@@ -292,49 +333,35 @@
     <li>
       <p>Import .csv files by clicking in ‘File’ in the task bar of the main window</p>
       <ul>
-        <li>
-          <p>→&gt; select ‘import’ &gt; ‘Text data (delimited, *.csv, …)”</p>
-        </li>
+        <li><p>&gt; select ‘import’ &gt; ‘Text data (delimited, *.csv, …)”</p></li>
       </ul>
     </li>
     <li>
       <p>Click on the spreadsheet icon with the pencil in the main window’s taskbar</p>
       <ul>
-        <li>
-          <p>→&gt; Copy paste the data from your spreadsheet to the Data Editor (it will ask if you want to treat the first line as variable names)</p>
-        </li>
+        <li><p>&gt; Copy paste the data from your spreadsheet to the Data Editor (it will ask if you want to treat the first line as variable names)</p></li>
       </ul>
     </li>
     <li>
       <p>Import the .csv file using the terminal and the file path, write (clear is for removing previous data):</p>
     </li>
   </ul>
-  <p>import delimited "/home/user/documents/ANOVA.csv", clear</p>
+  <p class="code indent">→ import delimited "/home/user/documents/ANOVA.csv", clear</p>
   <h2 id="TOC2_2">2.2. Create Data</h2>
   <ul>
     <li>
       <p>New variable:</p>
       <ul>
-        <li>
-          <p>→generate: create variables with manual functions</p>
-        </li>
-        <li>
-          <p>→egen: create new data based on extisting functions (only two are mentioned below, check help egen for more info)</p>
-        </li>
+        <li><p>generate: create variables with manual functions</p></li>
+        <li><p>egen: create new data based on extisting functions (only two are mentioned below, check help egen for more info)</p></li>
       </ul>
     </li>
     <li>
       <p>Alter variable:</p>
       <ul>
-        <li>
-          <p>→New values: replace</p>
-        </li>
-        <li>
-          <p>→New name: rename</p>
-        </li>
-        <li>
-          <p>→New format: format</p>
-        </li>
+        <li><p>New values: replace</p></li>
+        <li><p>New name: rename</p></li>
+        <li><p>New format: format</p></li>
       </ul>
     </li>
   </ul>
@@ -467,14 +494,14 @@
   </table>
   <h2 id="TOC2_4">2.4. Data labels</h2>
   <p>In many cases (e.g. statistics, several types of graphs) the naming variable has to be a number. In order to still show the actual names instead of the numbers, data labels can be assigned to the variable. This is conducted in two steps, first the creation of an array and than the assignment of said array to the varribale.</p>
-  <p>label define [arr] [1 "[string1]" 2 "[string2]" ...]</p>
-  <p>label values [var] [arr]</p>
-  <p>→ label define Name 1 "Corn starch" 2 "Pea starch" 3 "Potato starch"</p>
-  <p>→ label values ID Name</p>
+  <p class="code">label define [arr] [1 "[string1]" 2 "[string2]" ...]</p>
+  <p class="code">label values [var] [arr]</p>
+  <p class="code">→ label define Name 1 "Corn starch" 2 "Pea starch" 3 "Potato starch"</p>
+  <p class="code">→ label values ID Name</p>
   <p></p>
   <p>Variables have sort of two names, the one with which you call in (usually lowercase, no spaces or special characters) and another which is displayed in the graphs. The second can be defined as followed:</p>
-  <p>label variable [var] "[string]"</p>
-  <p>→ label variable db "Degree of branching (%)"</p>
+  <p class="code">label variable [var] "[string]"</p>
+  <p class="code">→ label variable db "Degree of branching (%)"</p>
   <h2 id="TOC2_5">2.5. Limit data selection</h2>
   <p>Data can be selected by the usual operators</p>
   <table>
@@ -619,7 +646,7 @@
   <p>There are seveal types of formatting options that apply to most graphs, that effect the text, size and color.</p>
   <h2 id="TOC3_1">3.1. Text formatting</h2>
   <p>You can find them and many more under</p>
-  <p>help textbox_options</p>
+  <p class="code">help textbox_options</p>
   <table>
     <tr>
       <td>
@@ -750,7 +777,7 @@
   </table>
   <h2 id="TOC3_2">3.2. Size formatting</h2>
   <p>Size of the font, marker, line, etc can be changed in three different ways</p>
-  <p>help size</p>
+  <p class="code">help size</p>
   <ul>
     <li>
       <p>A defined size: [num]; e.g. size(2)</p>
@@ -762,12 +789,12 @@
       <p>A type: [type]; e.g. size(medium), there is a whole range of named sizes</p>
     </li>
   </ul>
-  <p>help linewidthstyle</p>
-  <p>help marginstyle</p>
-  <p>help markersizestyle</p>
+  <p class="code">help linewidthstyle</p>
+  <p class="code">help marginstyle</p>
+  <p class="code">help markersizestyle</p>
   <h2 id="TOC3_3">3.3. Colors</h2>
   <p>There are two different ways to set a color</p>
-  <p>help colorstyle</p>
+  <p class="code">help colorstyle</p>
   <ul>
     <li>
       <p>By defining the RGB, CMYK or HSV value (e.g. "32 206 250")</p>
@@ -775,15 +802,9 @@
     <li>
       <p>Preset color:</p>
       <ul>
-        <li>
-          <p>→There are many preset colors in default stata</p>
-        </li>
-        <li>
-          <p>→See: <a href="http://1.bp.blogspot.com/-HAFAL8DGqtk/ViDL7QtayRI/AAAAAAAAACo/oNuFKuGsGJI/s1600/hue.jpg">Named colors in Stata</a></p>
-        </li>
-        <li>
-          <p>→can further be manipulated by adding a muliplier (e.g. teal*1.5; marron*0.75)</p>
-        </li>
+        <li><p>There are many preset colors in default stata</p></li>
+        <li><p>See: <a href="http://1.bp.blogspot.com/-HAFAL8DGqtk/ViDL7QtayRI/AAAAAAAAACo/oNuFKuGsGJI/s1600/hue.jpg">Named colors in Stata</a></p></li>
+        <li><p>can further be manipulated by adding a muliplier (e.g. teal*1.5; marron*0.75)</p></li>
       </ul>
     </li>
   </ul>
@@ -792,41 +813,27 @@
   <ul>
     <li>
       <p>Line patterns (defined by a set name or a sequence)</p>
+      <p class="code">help linepatternstyle</p>
       <ul>
-        <li>
-          <p>→help linepatternstyle</p>
-        </li>
-        <li>
-          <p>→name: e.g. solid, dash, dot</p>
-        </li>
-        <li>
-          <p>→sequence: e.g. "_--" (a long dash followed by two short dashes)</p>
-        </li>
+        <li><p>name: e.g. solid, dash, dot</p></li>
+        <li><p>sequence: e.g. "_--" (a long dash followed by two short dashes)</p></li>
       </ul>
     </li>
     <li>
       <p>Marker style (defined by a name or a abbr.)</p>
+      <p class="code">help symbolstyle</p>
       <ul>
-        <li>
-          <p>→help symbolstyle</p>
-        </li>
-        <li>
-          <p>→common names are (circle, diamond, triangle, square, pipe)</p>
-        </li>
-        <li>
-          <p>→common abbr. for solid icons are (O, D, T, S, |), for hollow icons are (Oh, Dh, Th, Sh)</p>
-        </li>
-        <li>
-          <p>→small cap letters create smaller markers</p>
-        </li>
+        <li><p>common names are (circle, diamond, triangle, square, pipe)</p></li>
+        <li><p>common abbr. for solid icons are (O, D, T, S, |), for hollow icons are (Oh, Dh, Th, Sh)</p></li>
+        <li><p>small cap letters create smaller markers</p></li>
       </ul>
     </li>
   </ul>
   <h2 id="TOC3_5">3.5. Add Titles, Lines or Text</h2>
   <p>Titles, lines and textboxes can be added to each graph</p>
-  <p>help title_options</p>
-  <p>help added_line_options</p>
-  <p>help added_text_options</p>
+  <p class="code">help title_options</p>
+  <p class="code">help added_line_options</p>
+  <p class="code">help added_text_options</p>
   <table>
     <tr>
       <td>
@@ -920,14 +927,10 @@
   <h2 id="TOC3_6">3.6. Graphregion and Plotregion</h2>
   <p>The graph region is the complete area of the entire figure, including all axis, legends and titles and the plot region is only the graph itself (the displayed data points).</p>
   <ul>
-    <li>
-      <p>The margin of the graph region is the space between the edge of the figure and the rest</p>
-    </li>
-    <li>
-      <p>The margin of the plot region is the space between the graph and the axis and borders</p>
-    </li>
+    <li><p>The margin of the graph region is the space between the edge of the figure and the rest</p></li>
+    <li><p>The margin of the plot region is the space between the graph and the axis and borders</p></li>
   </ul>
-  <p>help region_options</p>
+  <p class="code">help region_options</p>
   <table>
     <tr>
       <td>
@@ -972,7 +975,7 @@
   </table>
   <h2 id="TOC3_7">3.7. Action</h2>
   <p>There are several general actions one usually needs, especially regarding saving the graphs</p>
-  <p>help graph export</p>
+  <p class="code">help graph export</p>
   <table>
     <tr>
       <td>
@@ -1025,7 +1028,7 @@
   </table>
   <h1 id="TOC4">4. TWOWAY GRAPHS</h1>
   <p>Twoway graphs are almost all graphs that take in two correlated numerical variables, e.g. scatter, line, area and range plots. There is a whole range of different types of graphs. Useful links to get an idea are:</p>
-  <p>help graph_twoway</p>
+  <p class="code">help graph_twoway</p>
   <ul>
     <li>
       <p><a href="https://www.stata.com/support/faqs/graphics/gph/stata-graphs/">https://www.stata.com/support/faqs/graphics/gph/stata-graphs/</a></p>
@@ -1040,25 +1043,25 @@
       <p>You can test out the graphs by using the default test data</p>
     </li>
   </ul>
-  <p>→ sysuse auto.dta</p>
+  <p class="code indent">→ sysuse auto.dta</p>
   <h2 id="TOC4_1">4.1. Graph types</h2>
   <p>The syntax for creating twoway graphs is</p>
-  <p>twoway [graph type] [y-list] [x], [options]</p>
-  <p>twoway [graph type] [y-list] [x] if [exp], [options]</p>
-  <p></p>
+  <p class="code">twoway [graph type] [y-list] [x], [options]</p>
+  <p class="code">twoway [graph type] [y-list] [x] if [exp], [options]</p>
+  <p class="spacer"></p>
   <p>Examples</p>
-  <p>scatter wavelength absorbance if sample==1, msymbol(O) msize(2.5)</p>
-  <p>rarea posSD negSD wavelength if sample==1, sort horizontal</p>
-  <p>twoway bar mean ID, by(enzyme) barwidth(0.75) color(red*2)</p>
-  <p>twoway rbar mean posSD ID, lcolor(black) fcolor(none) barwidth(0.6)</p>
-  <p>twoway connected branching time, yaxis(1) mcolor(blue*1.5) lcolor(blue*1.5)</p>
+  <p class="code">→ scatter wavelength absorbance if sample==1, msymbol(O) msize(2.5)</p>
+  <p class="code">→ rarea posSD negSD wavelength if sample==1, sort horizontal</p>
+  <p class="code">→ twoway bar mean ID, by(enzyme) barwidth(0.75) color(red*2)</p>
+  <p class="code">→ twoway rbar mean posSD ID, lcolor(black) fcolor(none) barwidth(0.6)</p>
+  <p class="code">→ twoway connected branching time, yaxis(1) mcolor(blue*1.5) lcolor(blue*1.5)</p>
   <h2 id="TOC4_2">4.2. Axis</h2>
   <h3 id="TOC4_2_1">4.2.1. Axis labels options</h3>
   <p>This subset of options affest the number and style of the ticks of an axis and the associated labels</p>
-  <p>help axis_label_options</p>
-  <p>xlabel(#(#)#, options)</p>
-  <p>→ ylabel(0(10)50), format(%5.2f) nogrid labsize(3))</p>
-  <p>→ xlabel(#8, noticks grid valuelabel)</p>
+  <p class="code">help axis_label_options</p>
+  <p class="code">xlabel(#(#)#, options)</p>
+  <p class="code">→ ylabel(0(10)50), format(%5.2f) nogrid labsize(3))</p>
+  <p class="code">→ xlabel(#8, noticks grid valuelabel)</p>
   <table>
     <tr>
       <td>
@@ -1228,8 +1231,8 @@
   </table>
   <h3 id="TOC4_2_2">4.2.2. Axis scale options</h3>
   <p>This set of options target the range of the axis, the style of the line and the surrounding gaps</p>
-  <p>help axis_scale_options</p>
-  <p>xscale(options)</p>
+  <p class="code">help axis_scale_options</p>
+  <p class="code">xscale([options])</p>
   <table>
     <tr>
       <td>
@@ -1322,11 +1325,11 @@
   </table>
   <h2 id="TOC4_3">4.3. Legend</h2>
   <p>Legend options changes everything within the legend box and its placement</p>
-  <p>help legend_options</p>
-  <p>legend(options)</p>
-  <p>→ legend(col(2) colfirst ///  order(- "{bf:Branching enzymes}" 7 "{it:B. fibrisolvens}" ///  8 "{it:T. kodakarensis}") size(4)) ///</p>
-  <p>→ legend(col(6) colfirst symysize(*0.05) size(4) col(1) ///  subtitle("Time (min)", size(4))</p>
-  <p>→ legend(col(2) colfirst size(3) region(lcolor(white)) ///  symxsize(*0.5) holes(5 9) ///  order(- "GH13:" 1 2 3 - "GH57:" 4 5 6)) ///</p>
+  <p class="code">help legend_options</p>
+  <p class="code">legend(options)</p>
+  <p class="code">→ legend(col(2) colfirst ///  order(- "{bf:Branching enzymes}" 7 "{it:B. fibrisolvens}" ///  8 "{it:T. kodakarensis}") size(4)) ///</p>
+  <p class="code">→ legend(col(6) colfirst symysize(*0.05) size(4) col(1) ///  subtitle("Time (min)", size(4))</p>
+  <p class="code">→ legend(col(2) colfirst size(3) region(lcolor(white)) ///  symxsize(*0.5) holes(5 9) ///  order(- "GH13:" 1 2 3 - "GH57:" 4 5 6)) ///</p>
   <table>
     <tr>
       <td>
@@ -1451,9 +1454,9 @@
   </table>
   <h2 id="TOC4_4">4.4. Markers</h2>
   <p>The markers are the symbols of the data points (e.g. in scatter plots). The options are direclty added to the rest of the graph options. Each data set (e.g. sample) has to addressed individually by writing all of them in a row in the parantheses</p>
-  <p>help marker_options</p>
-  <p>→ pcarrow ay2 ax2 ay1 ax1, lc(black) mcolor(black) mangle(22) ///  barbsize(thick) msize(medium) lwidth(thin))</p>
-  <p>→ scatter wlmean abmean if sample==10, msym(T) msize(2) ///  mcolor(gs8) mlwidth(medthick)</p>
+  <p class="code">help marker_options</p>
+  <p class="code">→ pcarrow ay2 ax2 ay1 ax1, lc(black) mcolor(black) mangle(22) ///  barbsize(thick) msize(medium) lwidth(thin))</p>
+  <p class="code">→ scatter wlmean abmean if sample==10, msym(T) msize(2) ///  mcolor(gs8) mlwidth(medthick)</p>
   <table>
     <tr>
       <td>
@@ -1530,7 +1533,7 @@
   </table>
   <h2 id="TOC4_5">4.5.</a>Marker labels</h2>
   <p>Labels can be added to each marker using a variable and can be formatted as other text but each data set (e.g. sample) has to addressed individually by appending them (like the markers)</p>
-  <p>help marker_label_options</p>
+  <p class="code">help marker_label_options</p>
   <table>
     <tr>
       <td>
@@ -1585,59 +1588,42 @@
   <ul>
     <li>
       <p>Line graph</p>
+      <p class="code">help connect_options</p>
       <ul>
-        <li>
-          <p>→help connect_options</p>
-        </li>
-        <li>
-          <p>→lcolor(black)</p>
-        </li>
-        <li>
-          <p>→lwidth(thin)</p>
-        </li>
-        <li>
-          <p>→lpattern(dash)</p>
-        </li>
+        <li><p>lcolor(black)</p></li>
+        <li><p>lwidth(thin)</p></li>
+        <li><p>lpattern(dash)</p></li>
       </ul>
     </li>
     <li>
       <p>Bars</p>
+      <p class="code">help twoway_bar</p>
       <ul>
-        <li>
-          <p>→help twoway_bar</p>
-        </li>
-        <li>
-          <p>→barwidth(0.3)</p>
-        </li>
-        <li>
-          <p>→bcolor(red*0.5)</p>
-        </li>
+        <li><p>barwidth(0.3)</p></li>
+        <li><p>bcolor(red*0.5)</p></li>
       </ul>
     </li>
     <li>
       <p>All options</p>
-      <ul>
-        <li>
-          <p>→help scatter##twoway_options</p>
-        </li>
-      </ul>
+      <p class="code">help scatter##twoway_options</p>
     </li>
   </ul>
   <h1 id="TOC5">5. OTHER GRAPH TYPES</h1>
   <p>There are many other graph types, most of them either don’t require a numerical x-var (e.g. bar graph, pie plots, box plot) or are special (e.g. timeline, histogram)</p>
-  <p>help graph</p>
-  <p>help graph_other</p>
+  <p class="code">help graph</p>
+  <p class="code">help graph_other</p>
   <h2 id="TOC5_1">5.1. Bar graphs</h2>
   <p>Graphs like bar graph, box plots and pie charts accept a list of y-variables which are usually grouped together by using either over() (see Section <a href="#TOC6_3">6.3</a>) or displayed as subgraphs using by() (Section <a href="#TOC6_1">6.1</a>)</p>
-  <p>help graph box</p>
-  <p>help graph bar</p>
-  <p>help graph pie</p>
-  <p>help histogram</p>
+  <p class="code">help graph box</p>
+  <p class="code">help graph bar</p>
+  <p class="code">help graph pie</p>
+  <p class="code">help histogram</p>
+  <p class="spacer"></p>
   <p>There are vertical bars (graph bar) and horizontal bars (graph hbar)</p>
-  <p>graph bar [var-list], over(Group1) over(Group2)</p>
-  <p>→ graph bar DP1 dP2 DP3, over(Enzyme, label(labsize(3))) over(Substrate)</p>
-  <p>→ graph bar area if rep==1, over(enzyme, label(nolabels)) asyvars</p>
-  <p>→ graph hbar DP1 DP2 DP3, by(enzyme) stack</p>
+  <p class="code">graph bar [var-list], over(Group1) over(Group2)</p>
+  <p class="code">→ graph bar DP1 dP2 DP3, over(Enzyme, label(labsize(3))) over(Substrate)</p>
+  <p class="code">→ graph bar area if rep==1, over(enzyme, label(nolabels)) asyvars</p>
+  <p class="code">→ graph hbar DP1 DP2 DP3, by(enzyme) stack</p>
   <h3 id="TOC5_1_1">5.1.1. General</h3>
   <table>
     <tr>
@@ -1743,17 +1729,18 @@
   </table>
   <h2 id="TOC5_2">5.2. Xtline graphs</h2>
   <p>Xtline graphs are used with timelines, especially if there are multiple samples. The default generates on subgraph/i but the option overlay can be used to condense them all into one plot</p>
-  <p>xtline [y-var], i([id]) t([time])</p>
-  <p>xtline [y-var], i([id]) t([time]) overlay</p>
-  <p>→ xtline absorbance if sample != 0, i(sample) t(time) overlay</p>
+  <p class="code">xtline [y-var], i([id]) t([time])</p>
+  <p class="code">xtline [y-var], i([id]) t([time]) overlay</p>
+  <p class="code">→ xtline absorbance if sample != 0, i(sample) t(time) overlay</p>
   <h1 id="TOC6">6. COMBINE GRAPHS</h1>
   <p>There are four different ways to combine data into one graph: by, over, addplot and combine.</p>
   <h2 id="TOC6_1">6.1. By() option</h2>
   <p>By() can be used to create a graph composed of a subgraph/sample, each with its own axis and title. The syntax is:</p>
-  <p>help by_option</p>
-  <p>by([varlist], [options])</p>
-  <p>→ twoway scatter price mpg, by(foreign)</p>
-  <p>→ twoway line time temperature, by(enzyme batch, colfirst note(""))</p>
+  <p class="code">help by_option</p>
+  <p class="code">by([varlist], [options])</p>
+  <p class="code">→ twoway scatter price mpg, by(foreign)</p>
+  <p class="code">→ twoway line time temperature, by(enzyme batch, colfirst note(""))</p>
+  <p class="spacer"></p>
   <p>Typical options are as followed</p>
   <table>
     <tr>
@@ -1825,14 +1812,15 @@
   </table>
   <h2 id="TOC6_2">6.2. Addplot</h2>
   <p>Twoway graphs can easily be overlayed by adding a new graph with ||, example</p>
-  <p>twoway scatter price mpg if foreign==0 || scatter price mpg if foreign==1</p>
+  <p class="code">twoway scatter price mpg if foreign==0 || scatter price mpg if foreign==1</p>
   <p>Other graphs can be combined as well by using the addplot() option</p>
-  <p>help addplot_option</p>
+  <p class="code">help addplot_option</p>
   <h2 id="TOC6_3">6.3. Over() option</h2>
   <p>Over() can only be used for graph types that can be grouped, especially bar graphs. This will group the bars and repeat the types without dividing the graph into subgraphs</p>
-  <p>help graph bar##over_subopts</p>
-  <p>over([varlist], [options])</p>
-  <p>→ over(Enzyme, label(labsize(3)) gap(*0.5))</p>
+  <p class="code">help graph bar##over_subopts</p>
+  <p class="code">over([varlist], [options])</p>
+  <p class="code">→ over(Enzyme, label(labsize(3)) gap(*0.5))</p>
+  <p class="spacer"></p>
   <p>Common options are</p>
   <table>
     <tr>
@@ -1893,22 +1881,32 @@
   </table>
   <h2 id="TOC6_4">6.4. Graph combine</h2>
   <p>Graph combine is a command that can be used after creating and saving the graphs, thus creating a new graph. This is used for combining all types of different graphs.</p>
-  <p>help graph combine</p>
+  <p class="code">help graph combine</p>
   <ol>
     <li>
-      <p>1.Create all graphs individually and save them with a name</p>
+      <p>Create all graphs individually and save them with a name</p>
+      <p class="code">→ saving("/home/user/Documents/graph1.gph", replace)</p>
+    </li>
+    <li>
+      <p>Combine the graphs by using the syntax</p>
+      <p class="code">→ graph combine [plot list], [options]</p>
+      <p class="code">→ graph combine "/home/user/Documents/graph1.gph" ///</p>
+      <p class="code indent">"/home/user /Documents/graph2.gph" ///</p>
+      <p class="code indent">"/home/user /Documents/graph3.gph" , ///</p>
+      <p class="code indent">xcommon imargin(vsmall) ///</p>
+      <p class="code indent">graphregion(color(white)) plotregion(color(white))</p>
     </li>
   </ol>
-  <p>→ saving("/home/user/Documents/graph1.gph", replace)</p>
+  <p>If the options from this operator are not enough, there is also a add-on called grc1leg which works similarly but has more options</p>
+
+  <!-- </ol>
+
   <ol>
     <li>
       <p>2.Combine the graphs by using the syntax</p>
-    </li>
+    </li> -->
   </ol>
-  <p>→ graph combine [plot list], [options]</p>
-  <p>→ graph combine "/home/user /Documents/graph1.gph" ///  "/home/user /Documents/graph2.gph" ///  "/home/user /Documents/graph3.gph" , ///  xcommon imargin(vsmall) ///  graphregion(color(white)) plotregion(color(white))</p>
-  <p>If the options from this operator are not enough, there is also a add-on called grc1leg which works similarly but has more options</p>
-  <table>
+<table>
     <tr>
       <td>
         <p>Option</p>
@@ -2033,115 +2031,116 @@
   </table>
   <h1 id="TOC7">7. GRAPH EXAMPLES</h1>
   <h2 id="TOC7_1">7.1. Twoway graph</h2>
-  <p>twoway scatter db acl if enzyme ==1, mlabel(sub) mlabposition(12) ///</p>
-  <p>  || scatter db acl if enzyme ==2, mlabel(sub) mlabposition(12) ///</p>
-  <p>  || scatter db acl if enzyme ==3, mlabel(sub) mlabposition(12) ///</p>
-  <p>  legend(cols(4) order(1 "TtGBE" 2 "TkGBE" 3 "RmGBE")) ///</p>
-  <p>  nodraw ///</p>
-  <p>  saving("X:\Graphs\Graph4.gph", replace)</p>
-  <p></p>
-  <p>twoway line BfBE-Blank Volume, ///</p>
-  <p>  subtitle(, bcolor(gs14)) ///</p>
-  <p>  by(ID, note("") cols(3) legend(at(6) pos(c)) ///</p>
-  <p>  ixaxes ///</p>
-  <p>  graphregion(margin(small) color(white)) ///</p>
-  <p>  plotregion(margin(small))) ///</p>
-  <p>  lcolor(navy dkorange cranberry forest_green maroon black) ///</p>
-  <p>  || scatter STD Volume, by(ID) ///</p>
-  <p>  msymbol(pipe) mlabel(Label) mlabsize(2) ///</p>
-  <p>  mlabcolor(black) mlabposition(1) mcolor(black) mlabangle(45) ///</p>
-  <p>  legend(col(2) colfirst size(3) region(lcolor(white)) ///</p>
-  <p>  symxsize(*0.5) holes(5 9) ///</p>
-  <p>  order(- "GH13:" 1 2 3 - "GH57:" 4 5 6)) ///</p>
-  <p>  xlabel(,labsize(2.5)) xtitle(Volume (ml), size(2.5)) ///</p>
-  <p>  ylabel(,labsize(2.5) nogrid) ytitle(Signal (RI), size(2.5)) ///</p>
-  <p>  text(1925 35 "kDa", size(2)) ///</p>
-  <p>  text(1925 17 "Pullulan", size(2))</p>
-  <p></p>
-  <p>graph box dufs bacons bacon2s, ///</p>
-  <p>  legend(off) showyvars ///</p>
-  <p>  ylabel(#5,nogrid labsize(3)) ///</p>
-  <p>  ytitle(Domain position, margin(medsmall) size(3.5)) ///</p>
-  <p>  yvaroption(label(labgap(medsmall)) ) ///</p>
-  <p>  graphregion(margin(medsmall) color(white)) ///</p>
-  <p>  plotregion(margin(small) color(white)) ///</p>
-  <p>  box(1, color(navy) fintensity(80)) ///</p>
-  <p>  box(2, color(orange) fintensity(80)) ///</p>
-  <p>  box(3, color(cranberry) fintensity(80)) ///</p>
-  <p>  marker(2, mcolor(orange*1.1)) ///</p>
-  <p>  marker(3, mcolor(cranberry*1.1)) ///</p>
-  <p>  title("{bf:A}", color(black) position(11) size(5))</p>
-  <p>twoway histogram start if position=="First", freq ///</p>
-  <p>  by(db, note("") row(1) ixaxes ///</p>
-  <p>  graphregion(margin(small) color(white)) ///</p>
-  <p>  plotregion(margin(small))) ///</p>
-  <p>  width(5) horizontal bfcolor(orange_red) blcolor(red) ///</p>
-  <p>  || histogram start if position=="Second", freq by(db) ///</p>
-  <p>  width(5) horizontal bfcolor(ebblue) blcolor(ebblue*1.5) ///</p>
-  <p>  || histogram start if position=="Third", freq by(db) ///</p>
-  <p>  width(5) horizontal bfcolor(midgreen) blcolor(dkgreen) ///</p>
-  <p>  || histogram start if position=="Outlier", freq by(db) ///</p>
-  <p>  width(5) horizontal bfcolor(gold) blcolor(orange) ///</p>
-  <p>  yscale(reverse) ylabel(#8) ///</p>
-  <p>  ytitle(Start position of DUF1735 domain) xtitle(Percent (%)) ///</p>
-  <p>  legend(lab(1 "First") lab(2 "Second") lab(3 "Third") lab(4 "Outlier"))</p>
+  <p class="code">twoway scatter db acl if enzyme ==1, mlabel(sub) mlabposition(12) ///</p>
+  <p class="code indent">  || scatter db acl if enzyme ==2, mlabel(sub) mlabposition(12) ///</p>
+  <p class="code indent">  || scatter db acl if enzyme ==3, mlabel(sub) mlabposition(12) ///</p>
+  <p class="code indent">  legend(cols(4) order(1 "TtGBE" 2 "TkGBE" 3 "RmGBE")) ///</p>
+  <p class="code indent">  nodraw ///</p>
+  <p class="code indent">  saving("X:\Graphs\Graph4.gph", replace)</p>
+  <p class="spacer"></p>
+  <p class="code">twoway line BfBE-Blank Volume, ///</p>
+  <p class="code indent">  subtitle(, bcolor(gs14)) ///</p>
+  <p class="code indent">  by(ID, note("") cols(3) legend(at(6) pos(c)) ///</p>
+  <p class="code indent">  ixaxes ///</p>
+  <p class="code indent">  graphregion(margin(small) color(white)) ///</p>
+  <p class="code indent">  plotregion(margin(small))) ///</p>
+  <p class="code indent">  lcolor(navy dkorange cranberry forest_green maroon black) ///</p>
+  <p class="code indent">  || scatter STD Volume, by(ID) ///</p>
+  <p class="code indent">  msymbol(pipe) mlabel(Label) mlabsize(2) ///</p>
+  <p class="code indent">  mlabcolor(black) mlabposition(1) mcolor(black) mlabangle(45) ///</p>
+  <p class="code indent">  legend(col(2) colfirst size(3) region(lcolor(white)) ///</p>
+  <p class="code indent">  symxsize(*0.5) holes(5 9) ///</p>
+  <p class="code indent">  order(- "GH13:" 1 2 3 - "GH57:" 4 5 6)) ///</p>
+  <p class="code indent">  xlabel(,labsize(2.5)) xtitle(Volume (ml), size(2.5)) ///</p>
+  <p class="code indent">  ylabel(,labsize(2.5) nogrid) ytitle(Signal (RI), size(2.5)) ///</p>
+  <p class="code indent">  text(1925 35 "kDa", size(2)) ///</p>
+  <p class="code indent">  text(1925 17 "Pullulan", size(2))</p>
+  <p class="spacer"></p>
+  <p class="code">graph box dufs bacons bacon2s, ///</p>
+  <p class="code indent">  legend(off) showyvars ///</p>
+  <p class="code indent">  ylabel(#5,nogrid labsize(3)) ///</p>
+  <p class="code indent">  ytitle(Domain position, margin(medsmall) size(3.5)) ///</p>
+  <p class="code indent">  yvaroption(label(labgap(medsmall)) ) ///</p>
+  <p class="code indent">  graphregion(margin(medsmall) color(white)) ///</p>
+  <p class="code indent">  plotregion(margin(small) color(white)) ///</p>
+  <p class="code indent">  box(1, color(navy) fintensity(80)) ///</p>
+  <p class="code indent">  box(2, color(orange) fintensity(80)) ///</p>
+  <p class="code indent">  box(3, color(cranberry) fintensity(80)) ///</p>
+  <p class="code indent">  marker(2, mcolor(orange*1.1)) ///</p>
+  <p class="code indent">  marker(3, mcolor(cranberry*1.1)) ///</p>
+  <p class="code indent">  title("{bf:A}", color(black) position(11) size(5))</p>
+  <p class="spacer"></p>
+  <p class="code">twoway histogram start if position=="First", freq ///</p>
+  <p class="code indent">  by(db, note("") row(1) ixaxes ///</p>
+  <p class="code indent">  graphregion(margin(small) color(white)) ///</p>
+  <p class="code indent">  plotregion(margin(small))) ///</p>
+  <p class="code indent">  width(5) horizontal bfcolor(orange_red) blcolor(red) ///</p>
+  <p class="code indent">  || histogram start if position=="Second", freq by(db) ///</p>
+  <p class="code indent">  width(5) horizontal bfcolor(ebblue) blcolor(ebblue*1.5) ///</p>
+  <p class="code indent">  || histogram start if position=="Third", freq by(db) ///</p>
+  <p class="code indent">  width(5) horizontal bfcolor(midgreen) blcolor(dkgreen) ///</p>
+  <p class="code indent">  || histogram start if position=="Outlier", freq by(db) ///</p>
+  <p class="code indent">  width(5) horizontal bfcolor(gold) blcolor(orange) ///</p>
+  <p class="code indent">  yscale(reverse) ylabel(#8) ///</p>
+  <p class="code indent">  ytitle(Start position of DUF1735 domain) xtitle(Percent (%)) ///</p>
+  <p class="code indent">  legend(lab(1 "First") lab(2 "Second") lab(3 "Third") lab(4 "Outlier"))</p>
   <h2 id="TOC7_2">7.2. Bar graph</h2>
-  <p>graph hbar DP1 dP25 DP68 DP912 DP1324 DP25, ///</p>
-  <p>  over(Enzyme, label(labsize(3))) ///</p>
-  <p>  over(Substrate, label(labsize(3)) sort(SubID)) ///</p>
-  <p>  stack ///</p>
-  <p>  legend(row(1) size(3) symxsize(*0.5) ///</p>
-  <p>  order(1 "DP1" 2 "DP2-5" 3 "DP6-8" 4 "DP9-12" 5 "DP13-24" 6 "DP25")) ///</p>
-  <p>  ylabel(,labsize(3)) ytitle(% of total peak area (nC*min), size(3)) ///</p>
-  <p>  graphregion(margin(small) color(white)) plotregion(margin(small)) ///</p>
-  <p>  yline(0, lcolor(black))</p>
-  <p></p>
-  <p>graph hbar dp1, ///</p>
-  <p>  over(enzyme, label(labsize(3))) ///</p>
-  <p>  bar(1, color(navy)) ///</p>
-  <p>  legend(row(1) size(3) symxsize(*0.5) region(lpattern(blank)) ///</p>
-  <p>  order(1 "DP1")) ///</p>
-  <p>  graphregion(color(white)) ///</p>
-  <p>  ylabel(,labsize(3)) ytitle(% of total peak area (nC*min), size(3)) ///</p>
-  <p>  saving("/home/graph1.gph", replace)</p>
-  <p></p>
-  <p>graph bar bacteria-eukaryota ,///</p>
-  <p>  over(sample, sort(order) gap(*0.5) ///</p>
-  <p>  label(labsize(2.5)) ///</p>
-  <p>  relabel(1 `" "MC" "(NP3)" "' 2 `" "MC" "(NP4)" "' ///</p>
-  <p>  3 `" "Control" "(NP4)" "' ))  ///</p>
-  <p>  stack percent ///</p>
-  <p>  subtitle(, bcolor(gs14)) lintensity(*0) ///</p>
-  <p>  bar(1, fcolor(midblue*1.25) lalign(outside)) ///</p>
-  <p>  bar(2, fcolor(gold) lalign(outside)) ///</p>
-  <p>  bar(3, fcolor(cranberry) lalign(outside)) ///</p>
-  <p>  bar(4, fcolor(midgreen) lalign(outside)) ///</p>
-  <p>  bar(5, fcolor(purple) lalign(outside)) ///</p>
-  <p>  bar(6, fcolor(cyan*2) lalign(outside)) ///</p>
-  <p>  ylabel(,nogrid labsize(2.5)) ytitle(Composition (%), size(2.5)) ///</p>
-  <p>  title(Kingdom level distribution, size(4) color(black)) ///</p>
-  <p>  legend(pos(3) cols(1) size(2.5) region(lcolor(white)) ///</p>
-  <p>  symxsize(*0.5) symysize(*0.75) ///</p>
-  <p>  order(1 "Bacteria" 2 "Viruses" 3 "Archaea" 4 "Eukaryota" )) ///</p>
-  <p>  graphregion(margin(medsmall) color(white)) ///</p>
-  <p>  plotregion(margin(small) color(white))</p>
+  <p class="code">graph hbar DP1 dP25 DP68 DP912 DP1324 DP25, ///</p>
+  <p class="code indent">  over(Enzyme, label(labsize(3))) ///</p>
+  <p class="code indent">  over(Substrate, label(labsize(3)) sort(SubID)) ///</p>
+  <p class="code indent">  stack ///</p>
+  <p class="code indent">  legend(row(1) size(3) symxsize(*0.5) ///</p>
+  <p class="code indent">  order(1 "DP1" 2 "DP2-5" 3 "DP6-8" 4 "DP9-12" 5 "DP13-24" 6 "DP25")) ///</p>
+  <p class="code indent">  ylabel(,labsize(3)) ytitle(% of total peak area (nC*min), size(3)) ///</p>
+  <p class="code indent">  graphregion(margin(small) color(white)) plotregion(margin(small)) ///</p>
+  <p class="code indent">  yline(0, lcolor(black))</p>
+  <p class="spacer"></p>
+  <p class="code">graph hbar dp1, ///</p>
+  <p class="code indent">  over(enzyme, label(labsize(3))) ///</p>
+  <p class="code indent">  bar(1, color(navy)) ///</p>
+  <p class="code indent">  legend(row(1) size(3) symxsize(*0.5) region(lpattern(blank)) ///</p>
+  <p class="code indent">  order(1 "DP1")) ///</p>
+  <p class="code indent">  graphregion(color(white)) ///</p>
+  <p class="code indent">  ylabel(,labsize(3)) ytitle(% of total peak area (nC*min), size(3)) ///</p>
+  <p class="code indent">  saving("/home/graph1.gph", replace)</p>
+  <p class="spacer"></p>
+  <p class="code">graph bar bacteria-eukaryota ,///</p>
+  <p class="code indent">  over(sample, sort(order) gap(*0.5) ///</p>
+  <p class="code indent">  label(labsize(2.5)) ///</p>
+  <p class="code indent">  relabel(1 `" "MC" "(NP3)" "' 2 `" "MC" "(NP4)" "' ///</p>
+  <p class="code indent">  3 `" "Control" "(NP4)" "' ))  ///</p>
+  <p class="code indent">  stack percent ///</p>
+  <p class="code indent">  subtitle(, bcolor(gs14)) lintensity(*0) ///</p>
+  <p class="code indent">  bar(1, fcolor(midblue*1.25) lalign(outside)) ///</p>
+  <p class="code indent">  bar(2, fcolor(gold) lalign(outside)) ///</p>
+  <p class="code indent">  bar(3, fcolor(cranberry) lalign(outside)) ///</p>
+  <p class="code indent">  bar(4, fcolor(midgreen) lalign(outside)) ///</p>
+  <p class="code indent">  bar(5, fcolor(purple) lalign(outside)) ///</p>
+  <p class="code indent">  bar(6, fcolor(cyan*2) lalign(outside)) ///</p>
+  <p class="code indent">  ylabel(,nogrid labsize(2.5)) ytitle(Composition (%), size(2.5)) ///</p>
+  <p class="code indent">  title(Kingdom level distribution, size(4) color(black)) ///</p>
+  <p class="code indent">  legend(pos(3) cols(1) size(2.5) region(lcolor(white)) ///</p>
+  <p class="code indent">  symxsize(*0.5) symysize(*0.75) ///</p>
+  <p class="code indent">  order(1 "Bacteria" 2 "Viruses" 3 "Archaea" 4 "Eukaryota" )) ///</p>
+  <p class="code indent">  graphregion(margin(medsmall) color(white)) ///</p>
+  <p class="code indent">  plotregion(margin(small) color(white))</p>
   <h1 id="TOC8">8. STATISTICS</h1>
   <h2 id="TOC8_1">8.1. ANOVA</h2>
-  <p>by enzyme, sort : oneway dp area</p>
-  <p>oneway k id, tabulate</p>
-  <p>anova k id</p>
-  <p>tukeyhsd id</p>
-  <p>pwmean k, over(id) mcompare(tukey) effects // pwmean branching, over(ID) mcompare(tukey) groups</p>
+  <p class="code">by enzyme, sort : oneway dp area</p>
+  <p class="code">oneway k id, tabulate</p>
+  <p class="code">anova k id</p>
+  <p class="code">tukeyhsd id</p>
+  <p class="code">pwmean k, over(id) mcompare(tukey) effects // pwmean branching, over(ID) mcompare(tukey) groups</p>
   <h2 id="TOC8_2">8.2. Regress</h2>
-  <p>regress dp1 ratio if family != "Blank"</p>
-  <p>by family, sort : regress dp1 ratio</p>
-  <p>by enzyme substrate, sort :regress time a-c</p>
-  <p>statsby e(r2), by(enzyme): regress dp1 ratio</p>
-  <p>use "BEs_Starches_DPs.dta", clear</p>
-  <p>statsby e(r2_a), by(enzyme): regress dp1 ratio</p>
-  <p>statsby mean=r(mean) max=r(max) min=r(min) sd=r(sd), by(enzyme ID): summarize branching</p>
+  <p class="code">regress dp1 ratio if family != "Blank"</p>
+  <p class="code">by family, sort : regress dp1 ratio</p>
+  <p class="code">by enzyme substrate, sort :regress time a-c</p>
+  <p class="code">statsby e(r2), by(enzyme): regress dp1 ratio</p>
+  <p class="code">use "BEs_Starches_DPs.dta", clear</p>
+  <p class="code">statsby e(r2_a), by(enzyme): regress dp1 ratio</p>
+  <p class="code">statsby mean=r(mean) max=r(max) min=r(min) sd=r(sd), by(enzyme ID): summarize branching</p>
   <h2 id="TOC8_3">8.3. Pearson correlation</h2>
-  <p>pwcorr amylose-usds2 if id !=4, star(.01) sig</p>
-  <p>by enzyme, sort : pwcorr amylose branching dp35-dpo25, star(.05)</p>
+  <p class="code">pwcorr amylose-usds2 if id !=4, star(.01) sig</p>
+  <p class="code">by enzyme, sort : pwcorr amylose branching dp35-dpo25, star(.05)</p>
 </body>
 </html>
