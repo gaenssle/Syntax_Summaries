@@ -13,6 +13,22 @@
       margin: 75px 20px 10px 20px;
     }
 
+    .footer {
+      background-color: #1F456E;
+      position: fixed;
+      bottom: 0px;
+      width: 100%;
+    }
+
+    .footer a, .footer p {
+      font-size: 11px;
+      color: white;
+      text-align: center;
+      padding: 4px 10px;
+      display: inline-block;
+      float: right;
+    }
+
     .navbar {
       background-color: #1F456E;
       position: fixed;
@@ -24,7 +40,7 @@
       font-size: 15px;
       color: white;
       text-align: center;
-      padding: 8px 10px;
+      padding: 6px 10px;
       display: inline-block;
     }
 
@@ -86,6 +102,10 @@
     .title {
       font-size:250%;
       border: none;
+      text-align: center;
+    }
+
+    .subtitle {
       text-align: center;
     }
 
@@ -249,7 +269,14 @@
     </div>
   </div>
 
+  <div class="footer">
+    <a href="https://www.stata.com/" target="_blank">Stata 17</a>
+    <p>Manual created by A.L.O. Gaenssle, 2023</p>
+  </div>
   <div class="main">
+    <h1 class="title">Stata syntax and arguments</h1>
+    <p class="subtitle">Created for <a href="https://www.stata.com/" target="_blank">Stata 17</a> by A.L.O. Gaenssle, 2023</p>
+
     <h1 id="TOC1">1. GENERAL</h1>
     <p>Stata has four main windows and a whole range of additional windows for manual processing. Most things can be conducted without scripting but Stata does encourage writing commands.</p>
     <p class="spacer"></p>
@@ -547,7 +574,7 @@
       <li>Preset color:
         <ul>
           <li>There are many preset colors in default stata</li>
-          <li>See: <a href="http://1.bp.blogspot.com/-HAFAL8DGqtk/ViDL7QtayRI/AAAAAAAAACo/oNuFKuGsGJI/s1600/hue.jpg">Named colors in Stata</a></li>
+          <li>See: <a href="http://1.bp.blogspot.com/-HAFAL8DGqtk/ViDL7QtayRI/AAAAAAAAACo/oNuFKuGsGJI/s1600/hue.jpg" target="_blank">Named colors in Stata</a></li>
           <li>can further be manipulated by adding a muliplier (e.g. teal*1.5; marron*0.75)</li>
         </ul>
       </li>
@@ -680,9 +707,9 @@
     <p>Twoway graphs are almost all graphs that take in two correlated numerical variables, e.g. scatter, line, area and range plots. There is a whole range of different types of graphs. Useful links to get an idea are:</p>
     <p class="code">help graph_twoway</p>
     <ul>
-      <li><a href="https://www.stata.com/support/faqs/graphics/gph/stata-graphs/">https://www.stata.com/support/faqs/graphics/gph/stata-graphs/</a></li>
-      <li><a href="https://stats.oarc.ucla.edu/stata/modules/graph8/twoway/">https://stats.oarc.ucla.edu/stata/modules/graph8/twoway/</a></li>
-      <li><a href="https://stats.oarc.ucla.edu/stata/modules/graph8/intro/introduction-to-graphs-in-stata/">https://stats.oarc.ucla.edu/stata/modules/graph8/intro/introduction-to-graphs-in-stata/</a></li>
+      <li><a href="https://www.stata.com/support/faqs/graphics/gph/stata-graphs/" target="_blank">Stata graphs</a></li>
+      <li><a href="https://stats.oarc.ucla.edu/stata/modules/graph8/twoway/" target="_blank">Twoway graphs</a></li>
+      <li><a href="https://stats.oarc.ucla.edu/stata/modules/graph8/intro/introduction-to-graphs-in-stata/" target="_blank">Introduction to graphs in stata</a></li>
       <li>You can test out the graphs by using the default test data
       </li>
     </ul>
